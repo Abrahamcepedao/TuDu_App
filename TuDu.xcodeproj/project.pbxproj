@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CCF8F5D86B77B835D3E2D5F /* Pods_TuDu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A962ECF9F4E1AB107C4A31 /* Pods_TuDu.framework */; };
 		D71F125124AEBD2C00D6C190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F125024AEBD2C00D6C190 /* AppDelegate.swift */; };
 		D71F125324AEBD2C00D6C190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F125224AEBD2C00D6C190 /* SceneDelegate.swift */; };
 		D71F125524AEBD2C00D6C190 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F125424AEBD2C00D6C190 /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25B90BD6EBC3AE86B8CE44B4 /* Pods-TuDu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuDu.debug.xcconfig"; path = "Target Support Files/Pods-TuDu/Pods-TuDu.debug.xcconfig"; sourceTree = "<group>"; };
+		4E11223B73FF9F241EE8B65E /* Pods-TuDu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuDu.release.xcconfig"; path = "Target Support Files/Pods-TuDu/Pods-TuDu.release.xcconfig"; sourceTree = "<group>"; };
 		D71F124D24AEBD2C00D6C190 /* TuDu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuDu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71F125024AEBD2C00D6C190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D71F125224AEBD2C00D6C190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		D71F125924AEBD2D00D6C190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D71F125C24AEBD2D00D6C190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D71F125E24AEBD2D00D6C190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3A962ECF9F4E1AB107C4A31 /* Pods_TuDu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuDu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CCF8F5D86B77B835D3E2D5F /* Pods_TuDu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB3D4FD7AAA60B08B7EF3B59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3A962ECF9F4E1AB107C4A31 /* Pods_TuDu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B72FA46F633A8AB1F5346C5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25B90BD6EBC3AE86B8CE44B4 /* Pods-TuDu.debug.xcconfig */,
+				4E11223B73FF9F241EE8B65E /* Pods-TuDu.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D71F124424AEBD2C00D6C190 = {
 			isa = PBXGroup;
 			children = (
 				D71F124F24AEBD2C00D6C190 /* TuDu */,
 				D71F124E24AEBD2C00D6C190 /* Products */,
+				B72FA46F633A8AB1F5346C5E /* Pods */,
+				AB3D4FD7AAA60B08B7EF3B59 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D71F126124AEBD2D00D6C190 /* Build configuration list for PBXNativeTarget "TuDu" */;
 			buildPhases = (
+				C2BDED02370AEEF74AE2BD35 /* [CP] Check Pods Manifest.lock */,
 				D71F124924AEBD2C00D6C190 /* Sources */,
 				D71F124A24AEBD2C00D6C190 /* Frameworks */,
 				D71F124B24AEBD2C00D6C190 /* Resources */,
+				FE20533F876050BE9E13FFE1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C2BDED02370AEEF74AE2BD35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TuDu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE20533F876050BE9E13FFE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TuDu/Pods-TuDu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TuDu/Pods-TuDu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TuDu/Pods-TuDu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D71F124924AEBD2C00D6C190 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		D71F126224AEBD2D00D6C190 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25B90BD6EBC3AE86B8CE44B4 /* Pods-TuDu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +370,7 @@
 		};
 		D71F126324AEBD2D00D6C190 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E11223B73FF9F241EE8B65E /* Pods-TuDu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

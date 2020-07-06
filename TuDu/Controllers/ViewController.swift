@@ -11,57 +11,32 @@ import RealmSwift
 import SwipeCellKit
 import ChameleonFramework
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     
     
     let realm = try! Realm()
     var categories: Results<Category>?
     var activities: Results<Activity>?
     
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCategories()
-        TableView.dataSource = self
-        TableView.delegate = self
-        TableView.separatorStyle = .none
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
         // loadActivities()
         
     }
     
-    //MARK: - Table View Data Source Methods - Categories
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories?.count ?? 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        if let category = categories?[indexPath.row] {
-            print(category.title)
-            cell.textLabel?.text = category.title
-            guard let color = UIColor(hexString: category.color) else{fatalError("No category")}
-            cell.backgroundColor = color
-            cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
-        } else{
-            cell.textLabel?.text = "Create a new category"
-            cell.backgroundColor = UIColor.systemBlue
-        }
-        cell.layer.cornerRadius = cell.frame.height / 5
-        return cell
-    }
-    
-    //MARK: - Table View Delegate Methods
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-    }
     
     //MARK: - Data Manipulation Methods
     //MARK: - Load Categories
     func loadCategories(){
         categories = realm.objects(Category.self)
-        TableView.reloadData()
+        tableView.reloadData()
         if let category = categories?[0]{
             print(category.title)
         }
@@ -76,7 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } catch{
             print("Error encoding itemArray, \(error)")
         }
-        TableView.reloadData()
+        tableView.reloadData()
     }
     
     @IBAction func BtnAddCategory(_ sender: UIButton) {
@@ -97,3 +72,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 }
 
+
+//MARK: - Table View Data Source Methods - Categories
+extension ViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories?.count ?? 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
+        if let category = categories?[indexPath.row] {
+            cell.categoryLabel.text = category.title
+            guard let color = UIColor(hexString: category.color) else{fatalError("No category")}
+            cell.CategoryView.backgroundColor = color
+            cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+        } else{
+            cell.textLabel?.text = "Create a new category"
+            cell.CategoryView.backgroundColor = UIColor.systemBlue
+        }
+        cell.CategoryView.layer.cornerRadius = cell.CategoryView.frame.size.height / 5
+        return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate{
+    //MARK: - Table View Delegate Methods
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+}

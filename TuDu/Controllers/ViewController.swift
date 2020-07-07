@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadCategories()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
         // loadActivities()
@@ -113,17 +114,17 @@ extension ViewController: UITableViewDataSource{
     }
     
 }
-
+//MARK: - Table View Delegate Methods
 extension ViewController: UITableViewDelegate{
-    //MARK: - Table View Delegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
 
 extension ViewController: CategoryCellDelegate{
     func categoryImageTapped(with title: String) {
         var textField = UITextField()
+        var titleLabel = UILabel()
         let alert = UIAlertController(title: "\(title)", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Rename category", style: .default) { (action) in
             let category = self.getCategory(with: title)
@@ -138,6 +139,4 @@ extension ViewController: CategoryCellDelegate{
         present(alert, animated: true, completion: nil)
         print("\(title)")
     }
-    
-    
 }

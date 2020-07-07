@@ -53,7 +53,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="CategoryLabel" destination="aMu-Gl-bSq" id="NKv-ik-h8U"/>
+                <outlet property="categoryLabel" destination="aMu-Gl-bSq" id="aQs-51-fCy"/>
                 <outlet property="categoryView" destination="C7x-DM-lbT" id="E4u-nr-zrW"/>
+                <outlet property="categoryViewImage" destination="dfs-ql-fUi" id="KIv-wk-v4W"/>
             </connections>
             <point key="canvasLocation" x="153.62318840579712" y="129.57589285714286"/>
         </tableViewCell>

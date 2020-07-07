@@ -82,21 +82,13 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
         if let category = categories?[indexPath.row] {
-            cell.categoryLabel.text = category.title
-            guard let color = UIColor(hexString: category.color) else{fatalError("No category")}
-            cell.categoryView.backgroundColor = color
-            cell.categoryLabel.textColor = ContrastColorOf(color, returnFlat: true)
+            cell.configure(with: category.title, hexcolor: category.color)
         } else{
             cell.categoryLabel.text = "Create a new category"
             cell.categoryView.backgroundColor = UIColor.systemBlue
         }
-        cell.categoryView.layer.cornerRadius = cell.categoryView.frame.size.height / 5
-//        cell.accessoryType = .detailDisclosureButton
         return cell
     }
-//    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-//        print(categories?[indexPath.row] ?? "default")
-//    }
     
 }
 

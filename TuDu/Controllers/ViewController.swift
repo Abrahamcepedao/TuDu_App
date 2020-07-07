@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadCategories()
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
         // loadActivities()
@@ -37,9 +36,6 @@ class ViewController: UIViewController {
     func loadCategories(){
         categories = realm.objects(Category.self)
         tableView.reloadData()
-        if let category = categories?[0]{
-            print(category.title)
-        }
     }
     
     //MARK: - Save Categories to Plist
@@ -52,6 +48,31 @@ class ViewController: UIViewController {
             print("Error encoding itemArray, \(error)")
         }
         tableView.reloadData()
+    }
+    
+    func updateCategoryTitle(category: Category, newTitle: String){
+        do{
+            try realm.write{
+                category.title = newTitle
+            }
+        } catch{
+            print("Error encoding itemArray, \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    //MARK: - Fecth Data Methods
+    func getCategory(with title: String) -> Category{
+        for category in categories!{
+            if category.title == title{
+                return category
+            }
+        }
+        let newCategory = Category()
+        newCategory.title = "New category"
+        newCategory.color = UIColor.randomFlat().hexValue()
+        saveCategories(category: newCategory)
+        return newCategory
     }
     
     @IBAction func BtnAddCategory(_ sender: UIButton) {
@@ -87,6 +108,7 @@ extension ViewController: UITableViewDataSource{
             cell.categoryLabel.text = "Create a new category"
             cell.categoryView.backgroundColor = UIColor.systemBlue
         }
+        cell.delegate = self
         return cell
     }
     
@@ -96,6 +118,26 @@ extension ViewController: UITableViewDelegate{
     //MARK: - Table View Delegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
+}
+
+extension ViewController: CategoryCellDelegate{
+    func categoryImageTapped(with title: String) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "\(title)", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Rename category", style: .default) { (action) in
+            let category = self.getCategory(with: title)
+            let newTitle = textField.text!
+            self.updateCategoryTitle(category: category, newTitle: newTitle)
+        }
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Rename category"
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        print("\(title)")
+    }
+    
+    
 }

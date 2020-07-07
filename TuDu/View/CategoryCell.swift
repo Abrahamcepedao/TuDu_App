@@ -12,7 +12,8 @@ class CategoryCell: UITableViewCell {
 
     
     @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var CategoryView: UIView!
+    @IBOutlet weak var categoryView: UIView!
+    @IBOutlet weak var categoryButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

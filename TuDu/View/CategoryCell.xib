@@ -25,12 +25,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ellipsis" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dfs-ql-fUi">
+                                <rect key="frame" x="296" y="14" width="19" height="25.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lp0-QN-iOX"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dfs-ql-fUi" firstAttribute="top" secondItem="C7x-DM-lbT" secondAttribute="top" constant="7" id="7Oh-1z-xDS"/>
                             <constraint firstItem="aMu-Gl-bSq" firstAttribute="centerX" secondItem="C7x-DM-lbT" secondAttribute="centerX" id="HQ8-SX-fpE"/>
                             <constraint firstAttribute="height" constant="50" id="PwO-hc-Da9"/>
                             <constraint firstItem="aMu-Gl-bSq" firstAttribute="centerY" secondItem="C7x-DM-lbT" secondAttribute="centerY" id="dkv-ii-Mry"/>
+                            <constraint firstAttribute="trailing" secondItem="dfs-ql-fUi" secondAttribute="trailing" constant="7" id="h2E-9F-nFk"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -44,9 +53,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="CategoryLabel" destination="aMu-Gl-bSq" id="NKv-ik-h8U"/>
-                <outlet property="CategoryView" destination="C7x-DM-lbT" id="E4u-nr-zrW"/>
+                <outlet property="categoryView" destination="C7x-DM-lbT" id="E4u-nr-zrW"/>
             </connections>
             <point key="canvasLocation" x="153.62318840579712" y="129.57589285714286"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+    </resources>
 </document>

@@ -84,15 +84,20 @@ extension ViewController: UITableViewDataSource{
         if let category = categories?[indexPath.row] {
             cell.categoryLabel.text = category.title
             guard let color = UIColor(hexString: category.color) else{fatalError("No category")}
-            cell.CategoryView.backgroundColor = color
-            cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+            cell.categoryView.backgroundColor = color
+            cell.categoryLabel.textColor = ContrastColorOf(color, returnFlat: true)
         } else{
-            cell.textLabel?.text = "Create a new category"
-            cell.CategoryView.backgroundColor = UIColor.systemBlue
+            cell.categoryLabel.text = "Create a new category"
+            cell.categoryView.backgroundColor = UIColor.systemBlue
         }
-        cell.CategoryView.layer.cornerRadius = cell.CategoryView.frame.size.height / 5
+        cell.categoryView.layer.cornerRadius = cell.categoryView.frame.size.height / 5
+//        cell.accessoryType = .detailDisclosureButton
         return cell
     }
+//    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+//        print(categories?[indexPath.row] ?? "default")
+//    }
+    
 }
 
 extension ViewController: UITableViewDelegate{

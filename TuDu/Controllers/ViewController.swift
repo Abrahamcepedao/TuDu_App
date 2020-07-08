@@ -44,18 +44,30 @@ class ViewController: UIViewController {
                 realm.add(category)
             }
         } catch{
-            print("Error encoding itemArray, \(error)")
+            print("Error adding category, \(error)")
         }
         tableView.reloadData()
     }
-    
+    //MARK: - Update Category
     func updateCategoryTitle(category: Category, newTitle: String){
         do{
             try realm.write{
                 category.title = newTitle
             }
         } catch{
-            print("Error encoding itemArray, \(error)")
+            print("Error updating category, \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    //MARK: - Delete Category
+    func deleteCategory(category: Category){
+        do{
+            try realm.write{
+                self.realm.delete(category)
+            }
+        } catch{
+            print("Error deleting category, \(error)")
         }
         tableView.reloadData()
     }
@@ -124,16 +136,21 @@ extension ViewController: CategoryCellDelegate{
     func categoryImageTapped(with title: String) {
         var textField = UITextField()
         let alert = UIAlertController(title: "\(title)", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Rename category", style: .default) { (action) in
+        let rename = UIAlertAction(title: "Rename category", style: .default) { (action) in
             let category = self.getCategory(with: title)
             let newTitle = textField.text!
             self.updateCategoryTitle(category: category, newTitle: newTitle)
+        }
+        let delete = UIAlertAction(title: "Delete category", style: .destructive) { (action) in
+            let category = self.getCategory(with: title)
+            self.deleteCategory(category: category)
         }
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Rename category"
             textField = alertTextField
         }
-        alert.addAction(action)
+        alert.addAction(rename)
+        alert.addAction(delete)
         present(alert, animated: true, completion: nil)
         print("\(title)")
     }

@@ -77,20 +77,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func BtnAddCategory(_ sender: UIButton) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add new category", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add category", style: .default) { (action) in
-            let newCategory = Category()
-            newCategory.title = textField.text!
-            newCategory.color = UIColor.randomFlat().hexValue()
-            self.saveCategories(category: newCategory)
-        }
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create new category"
-            textField = alertTextField
-        }
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+//        var textField = UITextField()
+//        let alert = UIAlertController(title: "Add new category", message: "", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "Add category", style: .default) { (action) in
+//            let newCategory = Category()
+//            newCategory.title = textField.text!
+//            newCategory.color = UIColor.randomFlat().hexValue()
+//            self.saveCategories(category: newCategory)
+//        }
+//        alert.addTextField { (alertTextField) in
+//            alertTextField.placeholder = "Create new category"
+//            textField = alertTextField
+//        }
+//        alert.addAction(action)
+//        present(alert, animated: true, completion: nil)
+        performSegue(withIdentifier: "addCategorySegue", sender: self)
     }
 }
 

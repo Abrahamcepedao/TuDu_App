@@ -124,7 +124,6 @@ extension ViewController: UITableViewDelegate{
 extension ViewController: CategoryCellDelegate{
     func categoryImageTapped(with title: String) {
         var textField = UITextField()
-        var titleLabel = UILabel()
         let alert = UIAlertController(title: "\(title)", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Rename category", style: .default) { (action) in
             let category = self.getCategory(with: title)

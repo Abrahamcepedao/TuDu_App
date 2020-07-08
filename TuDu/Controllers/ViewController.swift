@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
+        tableView.register(UINib(nibName: K.Nibs.categoryCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.categoryCellTV)
         tableView.reloadData()
         // loadActivities()
         
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
 //        }
 //        alert.addAction(action)
 //        present(alert, animated: true, completion: nil)
-        performSegue(withIdentifier: "addCategorySegue", sender: self)
+        performSegue(withIdentifier: K.Segues.addCategorySegue, sender: self)
     }
 }
 
@@ -113,7 +113,7 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.categoryCellTV, for: indexPath) as! CategoryCell
         if let category = categories?[indexPath.row] {
             cell.configure(with: category.title, hexcolor: category.color)
         } else{
@@ -159,7 +159,7 @@ extension ViewController: CategoryCellDelegate{
 //MARK: - Prepare for Segue functions
 extension ViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addCategorySegue"{
+        if segue.identifier == K.Segues.addCategorySegue{
             let destinationVC = segue.destination as! AddCategoryViewController
             destinationVC.categories = categories
         }

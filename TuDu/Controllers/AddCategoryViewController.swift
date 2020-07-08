@@ -71,7 +71,7 @@ extension AddCategoryViewController: UICollectionViewDataSource{
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCellCV", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CellIdentifiers.colorCellCV, for: indexPath)
         print(categories?[indexPath.row].title ?? "default")
         cell.backgroundColor = UIColor(hexString: categories?[indexPath.row].color ?? "ffffff")
         cell.layer.cornerRadius = 20

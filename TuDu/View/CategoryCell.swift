@@ -22,6 +22,8 @@ class CategoryCell: UITableViewCell {
     private var categoryTitle = ""
     
     public func configure(with title: String, hexcolor: String){
+        print("title: \(title)")
+        print("color: \(hexcolor)")
         guard let color = UIColor(hexString: hexcolor) else{fatalError("No category")}
         categoryLabel.text =  title
         self.categoryTitle = title

@@ -18,18 +18,49 @@ class AddCategoryViewController: UIViewController{
     @IBOutlet weak var categoryCV: UICollectionView!
     let realm = try! Realm()
     var categories: Results<Category>?
+    var newCategory = Category()
+    var categoryTitle: String = ""
+    var categoryColor: String = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryCV.dataSource = self
         categoryCV.delegate = self
-//        categoryCV.register(UINib(nibName: "ColorCellCV", bundle: nil), forCellWithReuseIdentifier: "ColorCellCV")
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let firstVC = presentingViewController as? ViewController {
+            DispatchQueue.main.async {
+                firstVC.tableView.reloadData()
+            }
+        }
+    }
 
     @IBAction func returnButtonPressed(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        categoryTitle = categoryTextField.text!
+        newCategory.title = categoryTitle
+        newCategory.color = categoryColor
+        saveCategories(category: newCategory)
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: - Save NewCategory to Plist
+    func saveCategories(category: Category){
+       do{
+           try realm.write{
+               realm.add(category)
+           }
+       } catch{
+           print("Error encoding itemArray, \(error)")
+       }
     }
 }
 
@@ -61,5 +92,7 @@ extension AddCategoryViewController: UICollectionViewDelegateFlowLayout{
             }
         }
         cell?.layer.cornerRadius = 5
+        categoryColor = categories?[indexPath.row].color ?? "ffffff"
+        print("Color: \(categoryColor)")
     }
 }

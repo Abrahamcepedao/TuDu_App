@@ -13,12 +13,10 @@ import ChameleonFramework
 
 class ViewController: UIViewController {
     
-    
+    @IBOutlet weak var tableView: UITableView!
     let realm = try! Realm()
     var categories: Results<Category>?
     var activities: Results<Activity>?
-    
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +25,10 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
+        tableView.reloadData()
         // loadActivities()
         
     }
-    
     
     //MARK: - Data Manipulation Methods
     //MARK: - Load Categories

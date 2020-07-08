@@ -107,6 +107,12 @@
                                                 <action selector="returnButtonPressed:" destination="Jsl-k5-xpM" id="DQx-dV-sct"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="t1n-8G-91a">
+                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="Jsl-k5-xpM" id="Tjp-pr-Szn"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

@@ -140,3 +140,14 @@ extension ViewController: CategoryCellDelegate{
         print("\(title)")
     }
 }
+
+//MARK: - Prepare for Segue functions
+extension ViewController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addCategorySegue"{
+            let destinationVC = segue.destination as! AddCategoryViewController
+            destinationVC.categories = categories
+        }
+        
+    }
+}

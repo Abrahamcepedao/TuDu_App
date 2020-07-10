@@ -44,12 +44,21 @@ class AddCategoryViewController: UIViewController{
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        categoryTitle = categoryTextField.text!
-        newCategory.title = categoryTitle
-        newCategory.color = categoryColor
-        saveCategories(category: newCategory)
-        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        if categoryTextField.text == ""{
+            categoryTextField.placeholder = "Please add some text.."
+        } else{
+            categoryTitle = categoryTextField.text!
+            newCategory.title = categoryTitle
+            if categoryColor == "" {
+                let randomNum = Int.random(in: 0..<colors.count)
+                newCategory.color = colors[randomNum]
+            }  else{
+                newCategory.color = categoryColor
+            }
+            saveCategories(category: newCategory)
+            navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     //MARK: - Save NewCategory to Plist

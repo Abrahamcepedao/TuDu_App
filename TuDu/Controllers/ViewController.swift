@@ -109,16 +109,21 @@ class ViewController: UIViewController {
 //MARK: - Table View Data Source Methods - Categories
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories?.count ?? 1
+        if categories?.count == 0{
+            return 1
+        } else{
+            return categories?.count ?? 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.categoryCellTV, for: indexPath) as! CategoryCell
-        if let category = categories?[indexPath.row] {
-            cell.configure(with: category.title, hexcolor: category.color)
+        if categories?.count == 0 {
+            cell.configure(with: "Create a new category", hexcolor: UIColor.systemBlue.hexValue())
         } else{
-            cell.categoryLabel.text = "Create a new category"
-            cell.categoryView.backgroundColor = UIColor.systemBlue
+            if let category = categories?[indexPath.row] {
+                cell.configure(with: category.title, hexcolor: category.color)
+            }
         }
         cell.delegate = self
         return cell
@@ -152,7 +157,6 @@ extension ViewController: CategoryCellDelegate{
         alert.addAction(rename)
         alert.addAction(delete)
         present(alert, animated: true, completion: nil)
-        print("\(title)")
     }
 }
 

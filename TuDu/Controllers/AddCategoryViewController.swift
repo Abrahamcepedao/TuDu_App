@@ -21,7 +21,7 @@ class AddCategoryViewController: UIViewController{
     var newCategory = Category()
     var categoryTitle: String = ""
     var categoryColor: String = ""
-    
+    var colors: [String] = ["4377BB", "A2D39E", "E82851", "F15C65", "1C315F", "6FC6B3", "FBB040", "F16C36", "EC337F", "54B96F"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,14 +66,12 @@ class AddCategoryViewController: UIViewController{
 
 extension AddCategoryViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("\(categories?.count ?? 0)")
-        return categories?.count ?? 1
+        return colors.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CellIdentifiers.colorCellCV, for: indexPath)
-        print(categories?[indexPath.row].title ?? "default")
-        cell.backgroundColor = UIColor(hexString: categories?[indexPath.row].color ?? "ffffff")
+        cell.backgroundColor = UIColor(hexString: colors[indexPath.row])
         cell.layer.cornerRadius = 20
         return cell
     }
@@ -92,7 +90,6 @@ extension AddCategoryViewController: UICollectionViewDelegateFlowLayout{
             }
         }
         cell?.layer.cornerRadius = 5
-        categoryColor = categories?[indexPath.row].color ?? "ffffff"
-        print("Color: \(categoryColor)")
+        categoryColor = colors[indexPath.row]
     }
 }

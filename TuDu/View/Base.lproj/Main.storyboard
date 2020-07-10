@@ -80,11 +80,98 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="b7A-tC-xdL" id="4fh-YY-tvf"/>
+                        <segue destination="Z5d-9R-ufS" kind="presentation" identifier="editCategorySegue" id="7l1-n3-KZc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Edit Category View Controller-->
+        <scene sceneID="DOg-ba-RJK">
+            <objects>
+                <viewController id="Z5d-9R-ufS" customClass="EditCategoryViewController" customModule="TuDu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UTn-0a-kUW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NB5-3k-2nA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="waF-bU-Iwa"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Edit Category" id="wsp-XU-ofF">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.left" catalog="system" id="9Hx-mX-zDU">
+                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="returnBtnPressed:" destination="Z5d-9R-ufS" id="tIm-6x-z6A"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="yyn-IZ-B2Y">
+                                            <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="doneBtnPressed:" destination="Z5d-9R-ufS" id="TqJ-sZ-5Es"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit category..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qDz-Qe-S2k">
+                                <rect key="frame" x="20" y="74" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tea-gR-JPB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oZK-jD-UBo">
+                                <rect key="frame" x="20" y="134" width="374" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9hJ-4V-Sy2"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qlF-90-PxR">
+                                    <size key="itemSize" width="43" height="40"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ECColorCellCV" id="yl4-Qt-XpS">
+                                        <rect key="frame" x="0.0" y="0.0" width="43" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pa4-Zb-7ZA">
+                                            <rect key="frame" x="0.0" y="0.0" width="43" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="43" height="40"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cUt-tm-Afu" firstAttribute="trailing" secondItem="oZK-jD-UBo" secondAttribute="trailing" constant="20" id="2Hh-uZ-ojr"/>
+                            <constraint firstItem="NB5-3k-2nA" firstAttribute="leading" secondItem="cUt-tm-Afu" secondAttribute="leading" id="6J1-8Z-krB"/>
+                            <constraint firstItem="oZK-jD-UBo" firstAttribute="leading" secondItem="cUt-tm-Afu" secondAttribute="leading" constant="20" id="9Ns-Xa-WIO"/>
+                            <constraint firstItem="NB5-3k-2nA" firstAttribute="trailing" secondItem="cUt-tm-Afu" secondAttribute="trailing" id="Pl4-Z0-NKh"/>
+                            <constraint firstItem="oZK-jD-UBo" firstAttribute="top" secondItem="qDz-Qe-S2k" secondAttribute="bottom" constant="20" id="eVw-Tv-S6f"/>
+                            <constraint firstItem="qDz-Qe-S2k" firstAttribute="leading" secondItem="cUt-tm-Afu" secondAttribute="leading" constant="20" id="nM7-rm-UoZ"/>
+                            <constraint firstItem="NB5-3k-2nA" firstAttribute="top" secondItem="cUt-tm-Afu" secondAttribute="top" id="p44-PS-kTu"/>
+                            <constraint firstItem="cUt-tm-Afu" firstAttribute="trailing" secondItem="qDz-Qe-S2k" secondAttribute="trailing" constant="20" id="ybD-JQ-Oyy"/>
+                            <constraint firstItem="qDz-Qe-S2k" firstAttribute="top" secondItem="NB5-3k-2nA" secondAttribute="bottom" constant="30" id="yna-no-hEw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cUt-tm-Afu"/>
+                    </view>
+                    <connections>
+                        <outlet property="categoryTF" destination="qDz-Qe-S2k" id="EzJ-UT-fdZ"/>
+                        <outlet property="colorCV" destination="oZK-jD-UBo" id="HZP-n3-3hr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3qo-Ma-fYx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902.89855072463774" y="121.875"/>
         </scene>
         <!--Add Category View Controller-->
         <scene sceneID="Tq4-Ub-lon">
@@ -108,7 +195,7 @@
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="t1n-8G-91a">
-                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="doneButtonPressed:" destination="Jsl-k5-xpM" id="Tjp-pr-Szn"/>
                                             </connections>
@@ -165,13 +252,13 @@
                         <viewLayoutGuide key="safeArea" id="4HN-6J-xvV"/>
                     </view>
                     <connections>
-                        <outlet property="categoryCV" destination="TAb-LP-EP0" id="TP0-NG-1cl"/>
-                        <outlet property="categoryTextField" destination="78L-g8-Lpu" id="VuG-fJ-FaD"/>
+                        <outlet property="categoryTF" destination="78L-g8-Lpu" id="VuG-fJ-FaD"/>
+                        <outlet property="colorCV" destination="TAb-LP-EP0" id="TP0-NG-1cl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqt-Ae-iRl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="950.72463768115949" y="135.9375"/>
+            <point key="canvasLocation" x="903" y="-558"/>
         </scene>
     </scenes>
     <resources>

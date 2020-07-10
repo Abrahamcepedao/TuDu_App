@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     let realm = try! Realm()
     var categories: Results<Category>?
     var activities: Results<Activity>?
+    var tappedCategory: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,24 +140,8 @@ extension ViewController: UITableViewDelegate{
 
 extension ViewController: CategoryCellDelegate{
     func categoryImageTapped(with title: String) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "\(title)", message: "", preferredStyle: .alert)
-        let rename = UIAlertAction(title: "Rename category", style: .default) { (action) in
-            let category = self.getCategory(with: title)
-            let newTitle = textField.text!
-            self.updateCategoryTitle(category: category, newTitle: newTitle)
-        }
-        let delete = UIAlertAction(title: "Delete category", style: .destructive) { (action) in
-            let category = self.getCategory(with: title)
-            self.deleteCategory(category: category)
-        }
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Rename category"
-            textField = alertTextField
-        }
-        alert.addAction(rename)
-        alert.addAction(delete)
-        present(alert, animated: true, completion: nil)
+        tappedCategory = title
+        performSegue(withIdentifier: K.Segues.editCategorySegue, sender: self)
     }
 }
 
@@ -166,6 +151,9 @@ extension ViewController{
         if segue.identifier == K.Segues.addCategorySegue{
             let destinationVC = segue.destination as! AddCategoryViewController
             destinationVC.categories = categories
+        } else if segue.identifier == K.Segues.editCategorySegue{
+            let destinationVC = segue.destination as! EditCategoryViewController
+            destinationVC.category = getCategory(with: tappedCategory)
         }
         
     }

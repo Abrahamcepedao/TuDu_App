@@ -20,6 +20,7 @@
 		D76B98C224B678330052E6B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76B98C124B678330052E6B9 /* Constants.swift */; };
 		D7729D3A24AF8CE000B64287 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7729D3924AF8CE000B64287 /* Category.swift */; };
 		D7729D3C24AF8CEE00B64287 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7729D3B24AF8CEE00B64287 /* Activity.swift */; };
+		D7EA2F1D24B91E1200FCA47F /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA2F1C24B91E1200FCA47F /* EditCategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		D76B98C124B678330052E6B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D7729D3924AF8CE000B64287 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D7729D3B24AF8CEE00B64287 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		D7EA2F1C24B91E1200FCA47F /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
 		E3A962ECF9F4E1AB107C4A31 /* Pods_TuDu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuDu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 			children = (
 				D71F125424AEBD2C00D6C190 /* ViewController.swift */,
 				D76B98BF24B652A00052E6B9 /* AddCategoryViewController.swift */,
+				D7EA2F1C24B91E1200FCA47F /* EditCategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				D71F125124AEBD2C00D6C190 /* AppDelegate.swift in Sources */,
 				D71F125324AEBD2C00D6C190 /* SceneDelegate.swift in Sources */,
 				D76B98C024B652A00052E6B9 /* AddCategoryViewController.swift in Sources */,
+				D7EA2F1D24B91E1200FCA47F /* EditCategoryViewController.swift in Sources */,
 				D728E69924AFDD9C003AFCBA /* CategoryCell.swift in Sources */,
 				D76B98C224B678330052E6B9 /* Constants.swift in Sources */,
 			);

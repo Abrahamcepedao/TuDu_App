@@ -12,6 +12,7 @@ class EditCategoryViewController: UIViewController {
 
     @IBOutlet weak var categoryTF: UITextField!
     @IBOutlet weak var colorCV: UICollectionView!
+    @IBOutlet weak var deleteBtn: UIButton!
     let realm = try! Realm()
     var categories: Results<Category>?
     var category: Category? = Category()
@@ -24,6 +25,7 @@ class EditCategoryViewController: UIViewController {
         colorCV.dataSource = self
         colorCV.delegate = self
         categoryTF.placeholder = category?.title
+        deleteBtn.layer.cornerRadius = 15
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,6 +55,12 @@ class EditCategoryViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         }
     }
+    @IBAction func deleteBtnPressd(_ sender: UIButton) {
+        deleteCategory(category: category)
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     //MARK: - Update Category
     func updateCategoryTitle(category: Category?, newTitle: String, newColor: String){
@@ -63,6 +71,17 @@ class EditCategoryViewController: UIViewController {
             }
         } catch{
             print("Error updating category, \(error)")
+        }
+    }
+    
+    //MARK: - Delete category
+    func deleteCategory(category: Category?){
+        do{
+            try realm.write{
+                self.realm.delete(category!)
+            }
+        } catch {
+            print("Error deleting category, \(error)")
         }
     }
 }

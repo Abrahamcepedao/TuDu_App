@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCategories()
-        tableView.dataSource = self
-        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: K.Nibs.categoryCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.categoryCellTV)
         tableView.reloadData()
@@ -88,20 +88,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func BtnAddCategory(_ sender: UIButton) {
-//        var textField = UITextField()
-//        let alert = UIAlertController(title: "Add new category", message: "", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "Add category", style: .default) { (action) in
-//            let newCategory = Category()
-//            newCategory.title = textField.text!
-//            newCategory.color = UIColor.randomFlat().hexValue()
-//            self.saveCategories(category: newCategory)
-//        }
-//        alert.addTextField { (alertTextField) in
-//            alertTextField.placeholder = "Create new category"
-//            textField = alertTextField
-//        }
-//        alert.addAction(action)
-//        present(alert, animated: true, completion: nil)
         performSegue(withIdentifier: K.Segues.addCategorySegue, sender: self)
     }
 }
@@ -110,24 +96,37 @@ class ViewController: UIViewController {
 //MARK: - Table View Data Source Methods - Categories
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if categories?.count == 0{
-            return 1
+        if tableView.tag == 100{
+            if categories?.count == 0{
+                return 1
+            } else{
+                return categories?.count ?? 1
+            }
         } else{
-            return categories?.count ?? 1
+            return 4
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.categoryCellTV, for: indexPath) as! CategoryCell
-        if categories?.count == 0 {
-            cell.configure(with: "Create a new category", hexcolor: UIColor.systemBlue.hexValue())
-        } else{
-            if let category = categories?[indexPath.row] {
-                cell.configure(with: category.title, hexcolor: category.color)
+        if tableView.tag == 100{
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.categoryCellTV, for: indexPath) as! CategoryCell
+            if categories?.count == 0 {
+                cell.configure(with: "Create a new category", hexcolor: UIColor.systemBlue.hexValue())
+            } else{
+                if let category = categories?[indexPath.row] {
+                    print(category.title)
+                    cell.configure(with: category.title, hexcolor: category.color)
+                }
             }
+            cell.delegate = self
+            return cell
+        } else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.activityCellTV, for: indexPath) as! ActivityCell
+            print("Activity cell")
+            cell.ActivityLbl.text = "Test"
+            return cell
         }
-        cell.delegate = self
-        return cell
     }
     
 }

@@ -11,6 +11,7 @@ import Foundation
 struct K {
     struct CellIdentifiers {
         static let categoryCellTV = "CategoryCellTV"
+        static let activityCellTV = "ActivityCellTV"
         static let ACcolorCellCV = "ColorCellCV" // add category
         static let ECcolorCellCV = "ECColorCellCV" // edit category
     }
@@ -20,5 +21,6 @@ struct K {
     }
     struct Nibs {
         static let categoryCellNib = "CategoryCell"
+        static let activityCellNib = "ActivityCell"
     }
 }

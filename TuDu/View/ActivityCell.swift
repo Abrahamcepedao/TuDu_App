@@ -11,6 +11,7 @@ import UIKit
 class ActivityCell: UITableViewCell {
 
     @IBOutlet weak var ActivityLbl: UILabel!
+    @IBOutlet weak var activityVW: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

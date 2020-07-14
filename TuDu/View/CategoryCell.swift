@@ -31,6 +31,7 @@ class CategoryCell: UITableViewCell {
         categoryLbl.textColor = ContrastColorOf(color, returnFlat: true)
         categoryView.layer.cornerRadius = 15
         activitiesTV.delegate = self
+        activitiesTV.separatorStyle = .none
     }
     
     override func awakeFromNib() {
@@ -53,25 +54,17 @@ class CategoryCell: UITableViewCell {
     
 }
 
-//extension CategoryCell{
-//    func  setTableViewDataSourceDelegate<D:UITableViewDelegate & UITableViewDataSource>(_ dataSourceDelegate: D, forRow row: Int){
-//        activitiesTV.delegate = dataSourceDelegate
-//        activitiesTV.dataSource = dataSourceDelegate
-//        activitiesTV.reloadData()
-//    }
-//}
 extension CategoryCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.activityCellTV, for: indexPath) as! ActivityCell
         cell.ActivityLbl.text = "Test"
+        cell.activityVW.layer.cornerRadius = 20
+        cell.backgroundColor = .none
         return cell
     }
-
-
 }
 
 //MARK: - Table View Delegate Methods

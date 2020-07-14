@@ -9,27 +9,45 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCellTV" id="KGk-i7-Jjw" customClass="ActivityCell" customModule="TuDu" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCellTV" rowHeight="47" id="KGk-i7-Jjw" customClass="ActivityCell" customModule="TuDu" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="47"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="47"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbL-rA-xym">
-                        <rect key="frame" x="16" y="12" width="57" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hxr-xj-sGg">
+                        <rect key="frame" x="5" y="5" width="311" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbL-rA-xym">
+                                <rect key="frame" x="10" y="10" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="RoM-U1-gog"/>
+                            <constraint firstItem="UbL-rA-xym" firstAttribute="top" secondItem="Hxr-xj-sGg" secondAttribute="top" constant="10" id="Rxs-g1-Xu1"/>
+                            <constraint firstItem="UbL-rA-xym" firstAttribute="leading" secondItem="Hxr-xj-sGg" secondAttribute="leading" constant="10" id="pys-j6-OO6"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Hxr-xj-sGg" secondAttribute="trailing" constant="5" id="1t6-eJ-ofn"/>
+                    <constraint firstItem="Hxr-xj-sGg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Psg-oK-CiZ"/>
+                    <constraint firstItem="Hxr-xj-sGg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ju3-uP-ZbH"/>
+                    <constraint firstAttribute="bottom" secondItem="Hxr-xj-sGg" secondAttribute="bottom" constant="5" id="t5t-nZ-Q6g"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="ActivityLbl" destination="UbL-rA-xym" id="Cn7-DK-Sfp"/>
+                <outlet property="activityVW" destination="Hxr-xj-sGg" id="tMB-eu-UHG"/>
             </connections>
-            <point key="canvasLocation" x="139" y="144"/>
+            <point key="canvasLocation" x="138.40579710144928" y="144.97767857142856"/>
         </tableViewCell>
     </objects>
 </document>

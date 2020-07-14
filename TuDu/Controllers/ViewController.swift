@@ -22,8 +22,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCategories()
-//        tableView.dataSource = self
-//        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: K.Nibs.categoryCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.categoryCellTV)
         tableView.reloadData()
@@ -96,37 +94,25 @@ class ViewController: UIViewController {
 //MARK: - Table View Data Source Methods - Categories
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView.tag == 100{
-            if categories?.count == 0{
-                return 1
-            } else{
-                return categories?.count ?? 1
-            }
+        if categories?.count == 0{
+            return 1
         } else{
-            return 4
+            return categories?.count ?? 1
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView.tag == 100{
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.categoryCellTV, for: indexPath) as! CategoryCell
-            if categories?.count == 0 {
-                cell.configure(with: "Create a new category", hexcolor: UIColor.systemBlue.hexValue())
-            } else{
-                if let category = categories?[indexPath.row] {
-                    print(category.title)
-                    cell.configure(with: category.title, hexcolor: category.color)
-                }
-            }
-            cell.delegate = self
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.categoryCellTV, for: indexPath) as! CategoryCell
+        if categories?.count == 0 {
+            cell.configure(with: "Create a new category", hexcolor: UIColor.systemBlue.hexValue())
         } else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.activityCellTV, for: indexPath) as! ActivityCell
-            print("Activity cell")
-            cell.ActivityLbl.text = "Test"
-            return cell
+            if let category = categories?[indexPath.row] {
+                print(category.title)
+                cell.configure(with: category.title, hexcolor: category.color)
+            }
         }
+        cell.delegate = self
+        return cell
     }
     
 }

@@ -52,16 +52,16 @@ class CategoryCell: UITableViewCell {
     
 }
 
-extension CategoryCell{
-    func  setTableViewDataSourceDelegate<D:UITableViewDelegate & UITableViewDataSource>(_ dataSourceDelegate: D, forRow row: Int){
-        activitiesTV.delegate = dataSourceDelegate
-        activitiesTV.dataSource = dataSourceDelegate
-        activitiesTV.reloadData()
-    }
-}
+//extension CategoryCell{
+//    func  setTableViewDataSourceDelegate<D:UITableViewDelegate & UITableViewDataSource>(_ dataSourceDelegate: D, forRow row: Int){
+//        activitiesTV.delegate = dataSourceDelegate
+//        activitiesTV.dataSource = dataSourceDelegate
+//        activitiesTV.reloadData()
+//    }
+//}
 extension CategoryCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 6
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

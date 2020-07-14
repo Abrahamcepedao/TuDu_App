@@ -30,6 +30,7 @@ class CategoryCell: UITableViewCell {
         categoryView.backgroundColor = color
         categoryLbl.textColor = ContrastColorOf(color, returnFlat: true)
         categoryView.layer.cornerRadius = 15
+        activitiesTV.delegate = self
     }
     
     override func awakeFromNib() {
@@ -71,4 +72,11 @@ extension CategoryCell: UITableViewDataSource{
     }
 
 
+}
+
+//MARK: - Table View Delegate Methods
+extension CategoryCell: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
 }

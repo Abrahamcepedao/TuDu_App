@@ -126,10 +126,16 @@ extension ViewController: UITableViewDelegate{
 }
 
 extension ViewController: CategoryCellDelegate{
+    func addActivityImageTapped(with title: String) {
+        tappedCategory = title
+        performSegue(withIdentifier: K.Segues.addActivitySegue, sender: self)
+    }
+    
     func categoryImageTapped(with title: String) {
         tappedCategory = title
         performSegue(withIdentifier: K.Segues.editCategorySegue, sender: self)
     }
+    
 }
 
 //MARK: - Prepare for Segue functions
@@ -141,6 +147,9 @@ extension ViewController{
         } else if segue.identifier == K.Segues.editCategorySegue{
             let destinationVC = segue.destination as! EditCategoryViewController
             destinationVC.category = getCategory(with: tappedCategory)
+        } else if segue.identifier == K.Segues.addActivitySegue{
+            let destinationVC = segue.destination as! AddActivityViewController
+            destinationVC.selectedCategory = getCategory(with: tappedCategory)
         }
         
     }

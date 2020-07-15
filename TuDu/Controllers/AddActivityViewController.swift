@@ -11,16 +11,11 @@ import RealmSwift
 class AddActivityViewController: UIViewController {
     
     let realm = try! Realm()
-    var categories: Results<Category>?
     var selectedCategory: Category?
     @IBOutlet weak var activityTF: UITextField!
-    @IBOutlet weak var categoriesCV: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoriesCV.dataSource = self
-        categoriesCV.delegate = self
-        loadCategories()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,39 +53,7 @@ class AddActivityViewController: UIViewController {
         }
     }
     
-    func loadCategories(){
-        categories = realm.objects(Category.self)
-        categoriesCV.reloadData()
-    }
     
 }
 
-extension AddActivityViewController: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories?.count ?? 1
-    }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CellIdentifiers.AAcategoryCell, for: indexPath)
-        cell.backgroundColor = UIColor(hexString: categories![indexPath.row].color)
-        cell.layer.cornerRadius = 20
-        return cell
-    }
-}
-
-extension AddActivityViewController: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 40)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        selectedCategory = categories?[indexPath.row]
-        for cells in collectionView.visibleCells {
-            if cells != cell{
-                cells.layer.cornerRadius = 20
-            }
-        }
-        cell?.layer.cornerRadius = 5
-    }
-}

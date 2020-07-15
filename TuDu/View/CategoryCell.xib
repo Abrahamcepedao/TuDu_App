@@ -39,6 +39,13 @@
                                     <constraint firstAttribute="height" constant="200" id="u80-7f-Zq7"/>
                                 </constraints>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5v5-DN-lDw">
+                                <rect key="frame" x="373" y="9" width="18" height="36"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="R68-wP-TiE"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -46,7 +53,9 @@
                             <constraint firstItem="aMu-Gl-bSq" firstAttribute="centerX" secondItem="C7x-DM-lbT" secondAttribute="centerX" id="HQ8-SX-fpE"/>
                             <constraint firstAttribute="trailing" secondItem="NI8-1A-RN7" secondAttribute="trailing" constant="10" id="WUc-cf-PH7"/>
                             <constraint firstAttribute="height" constant="274" id="Yih-bQ-iO2"/>
+                            <constraint firstItem="5v5-DN-lDw" firstAttribute="top" secondItem="C7x-DM-lbT" secondAttribute="top" constant="7" id="ZMd-jq-Nid"/>
                             <constraint firstItem="aMu-Gl-bSq" firstAttribute="top" secondItem="C7x-DM-lbT" secondAttribute="top" constant="10" id="bo7-Hu-yPZ"/>
+                            <constraint firstItem="dfs-ql-fUi" firstAttribute="leading" secondItem="5v5-DN-lDw" secondAttribute="trailing" constant="15" id="diT-26-p9q"/>
                             <constraint firstAttribute="trailing" secondItem="dfs-ql-fUi" secondAttribute="trailing" constant="7" id="h2E-9F-nFk"/>
                             <constraint firstItem="NI8-1A-RN7" firstAttribute="top" secondItem="dfs-ql-fUi" secondAttribute="bottom" constant="10" id="odC-UL-oH4"/>
                             <constraint firstItem="NI8-1A-RN7" firstAttribute="leading" secondItem="C7x-DM-lbT" secondAttribute="leading" constant="10" id="rlc-xg-Dij"/>
@@ -63,8 +72,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="activitiesTV" destination="NI8-1A-RN7" id="lP3-OK-9dy"/>
+                <outlet property="addActivityIV" destination="5v5-DN-lDw" id="PW8-yE-LU6"/>
+                <outlet property="categoryIV" destination="dfs-ql-fUi" id="KIv-wk-v4W"/>
                 <outlet property="categoryLbl" destination="aMu-Gl-bSq" id="aQs-51-fCy"/>
-                <outlet property="categoryVI" destination="dfs-ql-fUi" id="KIv-wk-v4W"/>
                 <outlet property="categoryView" destination="C7x-DM-lbT" id="E4u-nr-zrW"/>
             </connections>
             <point key="canvasLocation" x="233.33333333333334" y="203.57142857142856"/>
@@ -72,5 +82,6 @@
     </objects>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

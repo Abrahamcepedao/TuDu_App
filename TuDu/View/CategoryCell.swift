@@ -12,6 +12,7 @@ import ChameleonFramework
 
 protocol CategoryCellDelegate: AnyObject {
     func categoryImageTapped(with title: String)
+    func addActivityImageTapped(with title: String)
 }
 
 class CategoryCell: UITableViewCell {
@@ -20,7 +21,8 @@ class CategoryCell: UITableViewCell {
     weak var delegate: CategoryCellDelegate?
     @IBOutlet weak var categoryLbl: UILabel!
     @IBOutlet weak var categoryView: UIView!
-    @IBOutlet weak var categoryVI: UIImageView!
+    @IBOutlet weak var categoryIV: UIImageView!
+    @IBOutlet weak var addActivityIV: UIImageView!
     @IBOutlet weak var activitiesTV: UITableView!
     var activities: Results<Activity>?
     var categories: Results<Category>?
@@ -40,6 +42,7 @@ class CategoryCell: UITableViewCell {
         currentCategory = getCategory(with: categoryLbl.text!)
         loadActivities()
         activitiesTV.reloadData()
+        activitiesTV.backgroundColor = color
     }
     
     override func awakeFromNib() {
@@ -57,10 +60,17 @@ class CategoryCell: UITableViewCell {
         delegate?.categoryImageTapped(with: categoryTitle)
     }
     
+    @objc func addActivityImageTapped(){
+        delegate?.addActivityImageTapped(with: categoryTitle)
+    }
+    
     func setUpTV(){
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CategoryCell.categoryImageTapped))
-        categoryVI.addGestureRecognizer(tap)
-        categoryVI.isUserInteractionEnabled = true
+        let editTap = UITapGestureRecognizer(target: self, action: #selector(CategoryCell.categoryImageTapped))
+        categoryIV.addGestureRecognizer(editTap)
+        categoryIV.isUserInteractionEnabled = true
+        let addTap = UITapGestureRecognizer(target: self, action: #selector(CategoryCell.addActivityImageTapped))
+        addActivityIV.addGestureRecognizer(addTap)
+        addActivityIV.isUserInteractionEnabled = true
         activitiesTV.dataSource = self
         activitiesTV.register(UINib(nibName: K.Nibs.activityCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.activityCellTV)
     }

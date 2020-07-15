@@ -46,9 +46,6 @@ class CategoryCell: UITableViewCell {
         super.awakeFromNib()
         setUpTV()
         loadCategories()
-//        if activities?.count ?? 0 > 0{
-//            print(activities?[0].title)
-//        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -87,8 +84,6 @@ extension CategoryCell: UITableViewDataSource{
             cell.configure(with: activities?[indexPath.row].title ?? "default")
         }
         cell.backgroundColor = categoryView.backgroundColor
-//        currentCategory = getCategory(with: categoryLbl.text!)
-        print("category - \(currentCategory?.title ?? "default")")
         return cell
     }
 }
@@ -106,21 +101,16 @@ extension CategoryCell{
     //MARK: - Load Categories
     func loadCategories(){
         categories = realm.objects(Category.self)
-        print(currentCategory?.title ?? "default")
-//        tableView.reloadData()
     }
     
     //MARK: - Load Activities
     func loadActivities(){
-        print("loading activities...")
         activities = currentCategory?.activities.sorted(byKeyPath: "title", ascending: true)
     }
     
     //MARK: - getCategory
     func getCategory(with title: String) -> Category{
         for category in categories!{
-            print(category.title)
-            print(title)
             if category.title == title{
                 return category
             }

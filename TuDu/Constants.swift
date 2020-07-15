@@ -18,6 +18,7 @@ struct K {
     struct Segues {
         static let addCategorySegue = "addCategorySegue"
         static let editCategorySegue = "editCategorySegue"
+        static let addActivitySegue = "addActivitySegue"
     }
     struct Nibs {
         static let categoryCellNib = "CategoryCell"

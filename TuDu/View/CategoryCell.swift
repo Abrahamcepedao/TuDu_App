@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 import ChameleonFramework
 
 protocol CategoryCellDelegate: AnyObject {
@@ -15,11 +16,15 @@ protocol CategoryCellDelegate: AnyObject {
 
 class CategoryCell: UITableViewCell {
 
+    let realm = try! Realm()
     weak var delegate: CategoryCellDelegate?
     @IBOutlet weak var categoryLbl: UILabel!
     @IBOutlet weak var categoryView: UIView!
     @IBOutlet weak var categoryVI: UIImageView!
     @IBOutlet weak var activitiesTV: UITableView!
+    var activities: Results<Activity>?
+    var categories: Results<Category>?
+    var currentCategory: Category?
     
     private var categoryTitle = ""
     
@@ -32,15 +37,13 @@ class CategoryCell: UITableViewCell {
         categoryView.layer.cornerRadius = 15
         activitiesTV.delegate = self
         activitiesTV.separatorStyle = .none
+        currentCategory = getCategory(with: title)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CategoryCell.categoryImageTapped))
-        categoryVI.addGestureRecognizer(tap)
-        categoryVI.isUserInteractionEnabled = true
-        activitiesTV.dataSource = self
-        activitiesTV.register(UINib(nibName: K.Nibs.activityCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.activityCellTV)
+        setUpTV()
+        loadData()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -52,17 +55,33 @@ class CategoryCell: UITableViewCell {
         delegate?.categoryImageTapped(with: categoryTitle)
     }
     
+    func setUpTV(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CategoryCell.categoryImageTapped))
+        categoryVI.addGestureRecognizer(tap)
+        categoryVI.isUserInteractionEnabled = true
+        activitiesTV.dataSource = self
+        activitiesTV.register(UINib(nibName: K.Nibs.activityCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.activityCellTV)
+    }
+    
 }
 
 extension CategoryCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        //countActivitiesInCategory()
+        if  activities?.count == 0{
+            return 1
+        } else{
+            return activities?.count ?? 1
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.activityCellTV, for: indexPath) as! ActivityCell
-        cell.ActivityLbl.text = "Test"
-        cell.activityVW.layer.cornerRadius = 20
-        cell.backgroundColor = .none
+        if activities?.count == 0{
+            cell.configure(with: "test")
+        } else{
+            cell.configure(with: "Add items")
+        }
+        cell.backgroundColor = categoryView.backgroundColor
         return cell
     }
 }
@@ -71,5 +90,28 @@ extension CategoryCell: UITableViewDataSource{
 extension CategoryCell: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+}
+
+
+//MARK: - Data Methods
+extension CategoryCell{
+    //MARK: - Load Activities
+    func loadData(){
+        categories = realm.objects(Category.self)
+        activities = currentCategory?.activities.sorted(byKeyPath: "title")
+//        tableView.reloadData()
+    }
+    //MARK: - getCategory
+    func getCategory(with title: String) -> Category{
+        for category in categories!{
+            if category.title == title{
+                return category
+            }
+        }
+        let newCategory = Category()
+        newCategory.title = "New category"
+        newCategory.color = UIColor.randomFlat().hexValue()
+        return newCategory
     }
 }

@@ -12,6 +12,12 @@ class ActivityCell: UITableViewCell {
 
     @IBOutlet weak var ActivityLbl: UILabel!
     @IBOutlet weak var activityVW: UIView!
+    
+    public func configure(with title: String){
+        ActivityLbl.text = title
+        activityVW.layer.cornerRadius = 20
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

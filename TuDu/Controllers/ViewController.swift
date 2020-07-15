@@ -88,9 +88,6 @@ class ViewController: UIViewController {
     @IBAction func BtnAddCategory(_ sender: UIButton) {
         performSegue(withIdentifier: K.Segues.addCategorySegue, sender: self)
     }
-    @IBAction func BtnAddItem(_ sender: UIButton) {
-        performSegue(withIdentifier: K.Segues.addActivitySegue, sender: self)
-    }
 }
 
 
@@ -103,7 +100,6 @@ extension ViewController: UITableViewDataSource{
             return categories?.count ?? 1
         }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.categoryCellTV, for: indexPath) as! CategoryCell
         if categories?.count == 0 {
@@ -116,8 +112,8 @@ extension ViewController: UITableViewDataSource{
         cell.delegate = self
         return cell
     }
-    
 }
+
 //MARK: - Table View Delegate Methods
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

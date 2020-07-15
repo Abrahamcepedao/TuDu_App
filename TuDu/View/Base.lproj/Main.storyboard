@@ -32,7 +32,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b7A-tC-xdL">
-                                <rect key="frame" x="0.0" y="114" width="414" height="682"/>
+                                <rect key="frame" x="0.0" y="114" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCellTV" rowHeight="170" id="3DG-t5-nCg" customClass="CategoryCell" customModule="TuDu" customModuleProvider="target">
@@ -71,10 +71,10 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-uh-wpE">
-                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="836" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="bottomLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="characterWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-yj-Hwt">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <color key="backgroundColor" red="0.015315928499999999" green="0.69439554209999999" blue="0.4195658565" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="0.90550085619999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Category" image="plus" catalog="system">
@@ -86,21 +86,9 @@
                                             <segue destination="Jsl-k5-xpM" kind="presentation" identifier="addCategorySegue" id="tjW-YB-PpO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmu-2O-6Yh">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="100"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Activity" image="plus" catalog="system">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="BtnAddItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1CA-oX-reN"/>
-                                            <segue destination="i3y-lF-5Sj" kind="presentation" identifier="addActivitySegue" id="YcI-Ah-gnu"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="DZc-3q-lLB"/>
+                                    <constraint firstAttribute="height" constant="60" id="DZc-3q-lLB"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -134,11 +122,11 @@
             <objects>
                 <viewController id="i3y-lF-5Sj" customClass="AddActivityViewController" customModule="TuDu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tpf-P2-3mh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q1-ea-UUH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7cG-r9-bSG"/>
                                 </constraints>
@@ -159,7 +147,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type new item.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7VL-Td-bkk">
-                                <rect key="frame" x="20" y="74" width="374" height="40"/>
+                                <rect key="frame" x="20" y="118" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nm1-gs-qxV"/>
                                 </constraints>

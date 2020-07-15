@@ -10,10 +10,11 @@ import Foundation
 
 struct K {
     struct CellIdentifiers {
-        static let categoryCellTV = "CategoryCellTV"
-        static let activityCellTV = "ActivityCellTV"
-        static let ACcolorCellCV = "ColorCellCV" // add category
-        static let ECcolorCellCV = "ECColorCellCV" // edit category
+        static let categoryCellTV = "CategoryCellTV" // category cell
+        static let activityCellTV = "ActivityCellTV" // activity cell
+        static let ACcolorCellCV = "ColorCellCV" // add category color cell
+        static let ECcolorCellCV = "ECColorCellCV" // edit category color cell
+        static let AAcategoryCell = "AAcategoryCell" // add Activity category cell
     }
     struct Segues {
         static let addCategorySegue = "addCategorySegue"

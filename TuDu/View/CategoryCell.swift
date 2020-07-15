@@ -37,13 +37,18 @@ class CategoryCell: UITableViewCell {
         categoryView.layer.cornerRadius = 15
         activitiesTV.delegate = self
         activitiesTV.separatorStyle = .none
-        currentCategory = getCategory(with: title)
+        currentCategory = getCategory(with: categoryLbl.text!)
+        loadActivities()
+        activitiesTV.reloadData()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpTV()
-        loadData()
+        loadCategories()
+//        if activities?.count ?? 0 > 0{
+//            print(activities?[0].title)
+//        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -77,11 +82,13 @@ extension CategoryCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.activityCellTV, for: indexPath) as! ActivityCell
         if activities?.count == 0{
-            cell.configure(with: "test")
-        } else{
             cell.configure(with: "Add items")
+        } else{
+            cell.configure(with: activities?[indexPath.row].title ?? "default")
         }
         cell.backgroundColor = categoryView.backgroundColor
+//        currentCategory = getCategory(with: categoryLbl.text!)
+        print("category - \(currentCategory?.title ?? "default")")
         return cell
     }
 }
@@ -96,15 +103,24 @@ extension CategoryCell: UITableViewDelegate{
 
 //MARK: - Data Methods
 extension CategoryCell{
-    //MARK: - Load Activities
-    func loadData(){
+    //MARK: - Load Categories
+    func loadCategories(){
         categories = realm.objects(Category.self)
-        activities = currentCategory?.activities.sorted(byKeyPath: "title")
+        print(currentCategory?.title ?? "default")
 //        tableView.reloadData()
     }
+    
+    //MARK: - Load Activities
+    func loadActivities(){
+        print("loading activities...")
+        activities = currentCategory?.activities.sorted(byKeyPath: "title", ascending: true)
+    }
+    
     //MARK: - getCategory
     func getCategory(with title: String) -> Category{
         for category in categories!{
+            print(category.title)
+            print(title)
             if category.title == title{
                 return category
             }

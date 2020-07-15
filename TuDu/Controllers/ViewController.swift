@@ -88,6 +88,9 @@ class ViewController: UIViewController {
     @IBAction func BtnAddCategory(_ sender: UIButton) {
         performSegue(withIdentifier: K.Segues.addCategorySegue, sender: self)
     }
+    @IBAction func BtnAddItem(_ sender: UIButton) {
+        performSegue(withIdentifier: K.Segues.addActivitySegue, sender: self)
+    }
 }
 
 
@@ -107,7 +110,6 @@ extension ViewController: UITableViewDataSource{
             cell.configure(with: "Create a new category", hexcolor: UIColor.systemBlue.hexValue())
         } else{
             if let category = categories?[indexPath.row] {
-                print(category.title)
                 cell.configure(with: category.title, hexcolor: category.color)
             }
         }

@@ -37,13 +37,22 @@ class CategoryCell: UITableViewCell {
         categoryView.backgroundColor = color
         categoryLbl.textColor = ContrastColorOf(color, returnFlat: true)
         categoryView.layer.cornerRadius = 15
+        addActivityIV.tintColor = ContrastColorOf(color, returnFlat: true)
+        categoryIV.tintColor = ContrastColorOf(color, returnFlat: true)
         if type {
+            addActivityIV.isHidden = false
+            categoryIV.isHidden = false
             activitiesTV.delegate = self
             activitiesTV.separatorStyle = .none
             currentCategory = getCategory(with: categoryLbl.text!)
             loadActivities()
             activitiesTV.reloadData()
             activitiesTV.backgroundColor = color
+        }
+        print(title)
+        if title == "Create a new category"{
+            addActivityIV.isHidden = true
+            categoryIV.isHidden = true
         }
     }
     

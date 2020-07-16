@@ -139,8 +139,12 @@ extension ViewController: UITableViewDataSource{
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        updateSelectedCategory(with: categories?[indexPath.row])
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        if categories?.count ?? 0 > 0{
+            updateSelectedCategory(with: categories?[indexPath.row])
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        } else{
+            performSegue(withIdentifier: K.Segues.addCategorySegue, sender: self)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

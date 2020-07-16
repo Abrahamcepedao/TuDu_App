@@ -27,6 +27,8 @@ class CategoryCell: UITableViewCell {
     var activities: Results<Activity>?
     var categories: Results<Category>?
     var currentCategory: Category?
+    var tappedActivity = ""
+    
     
     private var categoryTitle = ""
     
@@ -130,3 +132,5 @@ extension CategoryCell{
         return newCategory
     }
 }
+
+

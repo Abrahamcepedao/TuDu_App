@@ -8,10 +8,13 @@
 
 import UIKit
 
+
+
 class ActivityCell: UITableViewCell {
 
     @IBOutlet weak var ActivityLbl: UILabel!
     @IBOutlet weak var activityVW: UIView!
+    @IBOutlet weak var editActivityIV: UIImageView!
     
     public func configure(with title: String){
         ActivityLbl.text = title
@@ -20,13 +23,20 @@ class ActivityCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setUp()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    @objc func editActivityImagePressed(){
+        print("--- \(ActivityLbl.text!)")
+    }
+    
+    func setUp(){
+        let editTap = UITapGestureRecognizer(target: self, action: #selector(ActivityCell.editActivityImagePressed))
+        editActivityIV.addGestureRecognizer(editTap)
+        editActivityIV.isUserInteractionEnabled = true
+    }
 }

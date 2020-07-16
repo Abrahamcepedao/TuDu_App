@@ -121,6 +121,7 @@ extension ViewController: UITableViewDelegate{
     }
 }
 
+//MARK: - Category Cell Delegate Methods
 extension ViewController: CategoryCellDelegate{
     func addActivityImageTapped(with title: String) {
         tappedCategory = title
@@ -133,6 +134,7 @@ extension ViewController: CategoryCellDelegate{
     }
     
 }
+
 
 //MARK: - Prepare for Segue functions
 extension ViewController{

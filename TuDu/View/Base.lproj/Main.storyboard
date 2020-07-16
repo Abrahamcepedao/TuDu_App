@@ -112,6 +112,7 @@
                         <outlet property="addCategoryButton" destination="lrx-yj-Hwt" id="mjv-ba-8sI"/>
                         <outlet property="tableView" destination="b7A-tC-xdL" id="4fh-YY-tvf"/>
                         <segue destination="Z5d-9R-ufS" kind="presentation" identifier="editCategorySegue" id="7l1-n3-KZc"/>
+                        <segue destination="i3y-lF-5Sj" kind="presentation" identifier="addActivitySegue" id="L4w-xT-hKc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,11 +124,11 @@
             <objects>
                 <viewController id="i3y-lF-5Sj" customClass="AddActivityViewController" customModule="TuDu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tpf-P2-3mh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q1-ea-UUH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7cG-r9-bSG"/>
                                 </constraints>
@@ -148,7 +149,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type new item.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7VL-Td-bkk">
-                                <rect key="frame" x="20" y="118" width="374" height="40"/>
+                                <rect key="frame" x="20" y="74" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nm1-gs-qxV"/>
                                 </constraints>

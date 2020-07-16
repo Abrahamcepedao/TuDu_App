@@ -14,6 +14,7 @@ import ChameleonFramework
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addCategoryButton: UIButton!
     let realm = try! Realm()
     var categories: Results<Category>?
     var activities: Results<Activity>?
@@ -25,8 +26,8 @@ class ViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: K.Nibs.categoryCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.categoryCellTV)
         tableView.reloadData()
-        // loadActivities()
-        
+//        addCategoryButton.backgroundColor = GradientColor(UIGradientStyle.leftToRight, frame, colors: [HexColor("4377BB")!, HexColor("A2D39E")!])
+        addCategoryButton.backgroundColor = GradientColor(UIGradientStyle.leftToRight, frame: addCategoryButton.frame, colors: [HexColor("A2D39E")!, HexColor("4377BB")!])
     }
     
     //MARK: - Data Manipulation Methods

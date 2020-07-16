@@ -109,6 +109,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addCategoryButton" destination="lrx-yj-Hwt" id="mjv-ba-8sI"/>
                         <outlet property="tableView" destination="b7A-tC-xdL" id="4fh-YY-tvf"/>
                         <segue destination="Z5d-9R-ufS" kind="presentation" identifier="editCategorySegue" id="7l1-n3-KZc"/>
                     </connections>
@@ -218,7 +219,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9hJ-4V-Sy2"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qlF-90-PxR">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qlF-90-PxR">
                                     <size key="itemSize" width="43" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>

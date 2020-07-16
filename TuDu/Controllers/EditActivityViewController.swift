@@ -74,8 +74,6 @@ class EditActivityViewController: UIViewController {
     //MARK: - Get Activity
     func getActivity(with title: String) -> Activity?{
         for activity in activities!{
-            print(activity.title)
-            print(title)
             if activity.title == selectedActivityS{
                 return activity
             }

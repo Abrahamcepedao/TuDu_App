@@ -112,7 +112,6 @@ extension CategoryCell: UITableViewDelegate{
 //MARK: - Category Activity Delegate Methods
 extension CategoryCell: ActivityCellDelegate{
     func editActivityImagePressed(with title: String) {
-        print(categoryLbl.text ?? "default")
         editActivityImageTapped(with: title, and: categoryLbl.text ?? "default")
     }
 }

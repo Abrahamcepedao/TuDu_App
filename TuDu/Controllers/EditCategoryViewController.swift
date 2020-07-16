@@ -24,7 +24,7 @@ class EditCategoryViewController: UIViewController {
         super.viewDidLoad()
         colorCV.dataSource = self
         colorCV.delegate = self
-        categoryTF.placeholder = category?.title
+        categoryTF.text = category?.title
         deleteBtn.layer.cornerRadius = 15
     }
     

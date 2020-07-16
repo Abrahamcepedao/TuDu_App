@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: K.Nibs.categoryCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.categoryCellTV)
         tableView.reloadData()
+        tableView.estimatedRowHeight = 70
+        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.rowHeight = 70
         addCategoryButton.backgroundColor = GradientColor(UIGradientStyle.leftToRight, frame: addCategoryButton.frame, colors: [HexColor("6FC6B3")!, HexColor("4377BB")!])
     }
     
@@ -58,6 +61,16 @@ class ViewController: UIViewController {
             print("Error updating category, \(error)")
         }
         tableView.reloadData()
+    }
+    
+    func updateSelectedCategory(with category: Category?){
+        do{
+            try realm.write{
+                category?.selected = !category!.selected
+            }
+        } catch{
+            print("Error updating category \(error)")
+        }
     }
     
     //MARK: - Delete Category
@@ -110,6 +123,7 @@ extension ViewController: UITableViewDataSource{
                 cell.configure(with: category.title, hexcolor: category.color, type: true)
             }
         }
+        cell.selectionStyle = .none
         cell.delegate = self
         return cell
     }
@@ -118,7 +132,19 @@ extension ViewController: UITableViewDataSource{
 //MARK: - Table View Delegate Methods
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: true)
+        updateSelectedCategory(with: categories?[indexPath.row])
+        tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if categories?.count ?? 0 > 0{
+            if categories?[indexPath.row].selected ?? false{
+                return 200
+            }
+        }
+        return 70
+        
     }
 }
 

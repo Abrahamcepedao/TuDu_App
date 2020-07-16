@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="452" height="294"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7x-DM-lbT">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7x-DM-lbT">
                         <rect key="frame" x="10" y="10" width="432" height="274"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMu-Gl-bSq">
@@ -33,11 +33,8 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NI8-1A-RN7">
-                                <rect key="frame" x="10" y="57" width="412" height="200"/>
+                                <rect key="frame" x="10" y="57" width="412" height="207"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="u80-7f-Zq7"/>
-                                </constraints>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5v5-DN-lDw">
                                 <rect key="frame" x="373" y="9" width="18" height="36"/>
@@ -52,12 +49,12 @@
                             <constraint firstItem="dfs-ql-fUi" firstAttribute="top" secondItem="C7x-DM-lbT" secondAttribute="top" constant="7" id="7Oh-1z-xDS"/>
                             <constraint firstItem="aMu-Gl-bSq" firstAttribute="centerX" secondItem="C7x-DM-lbT" secondAttribute="centerX" id="HQ8-SX-fpE"/>
                             <constraint firstAttribute="trailing" secondItem="NI8-1A-RN7" secondAttribute="trailing" constant="10" id="WUc-cf-PH7"/>
-                            <constraint firstAttribute="height" constant="274" id="Yih-bQ-iO2"/>
                             <constraint firstItem="5v5-DN-lDw" firstAttribute="top" secondItem="C7x-DM-lbT" secondAttribute="top" constant="7" id="ZMd-jq-Nid"/>
                             <constraint firstItem="aMu-Gl-bSq" firstAttribute="top" secondItem="C7x-DM-lbT" secondAttribute="top" constant="10" id="bo7-Hu-yPZ"/>
+                            <constraint firstAttribute="bottom" secondItem="NI8-1A-RN7" secondAttribute="bottom" constant="10" id="cBV-0k-40c"/>
                             <constraint firstItem="dfs-ql-fUi" firstAttribute="leading" secondItem="5v5-DN-lDw" secondAttribute="trailing" constant="15" id="diT-26-p9q"/>
+                            <constraint firstItem="NI8-1A-RN7" firstAttribute="top" secondItem="C7x-DM-lbT" secondAttribute="top" constant="57" id="gX2-Hq-NTt"/>
                             <constraint firstAttribute="trailing" secondItem="dfs-ql-fUi" secondAttribute="trailing" constant="7" id="h2E-9F-nFk"/>
-                            <constraint firstItem="NI8-1A-RN7" firstAttribute="top" secondItem="dfs-ql-fUi" secondAttribute="bottom" constant="10" id="odC-UL-oH4"/>
                             <constraint firstItem="NI8-1A-RN7" firstAttribute="leading" secondItem="C7x-DM-lbT" secondAttribute="leading" constant="10" id="rlc-xg-Dij"/>
                         </constraints>
                     </view>

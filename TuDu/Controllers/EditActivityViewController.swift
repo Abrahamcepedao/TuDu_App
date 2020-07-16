@@ -14,6 +14,7 @@ class EditActivityViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var editActivityTF: UITextField!
+    @IBOutlet weak var deleteBtn: UIButton!
     let realm = try! Realm()
     var activities: Results<Activity>?
     var selectedCategory: Category?
@@ -25,6 +26,8 @@ class EditActivityViewController: UIViewController {
         navigationBar.topItem?.title = "Edit \(selectedActivityS)"
         loadActivities()
         editActivityTF.text = selectedActivityS
+        deleteBtn.layer.cornerRadius = 15
+        selectedActivityC = getActivity(with: selectedActivityS)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,12 +48,16 @@ class EditActivityViewController: UIViewController {
         if editActivityTF.text == ""{
             editActivityTF.placeholder = "Please add some text.."
         } else{
-            if let activity = getActivity(with: selectedActivityS){
-                updateActivity(activity: activity, newTitle: editActivityTF.text!)
-            }
+            updateActivity(activity: selectedActivityC, newTitle: editActivityTF.text!)
             navigationController?.popViewController(animated: true)
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func deleteActivityPressed(_ sender: UIButton) {
+        deleteActivity(activity: selectedActivityC!)
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     //MARK: - Update Activity
@@ -67,6 +74,8 @@ class EditActivityViewController: UIViewController {
     //MARK: - Get Activity
     func getActivity(with title: String) -> Activity?{
         for activity in activities!{
+            print(activity.title)
+            print(title)
             if activity.title == selectedActivityS{
                 return activity
             }
@@ -75,6 +84,17 @@ class EditActivityViewController: UIViewController {
         newActivity.title = "--"
         newActivity.date = Date()
         return newActivity
+    }
+    
+    //MARK: - Delete activity
+    func deleteActivity(activity: Activity){
+        do{
+            try realm.write{
+                self.realm.delete(activity)
+            }
+        } catch {
+            print("Error deleting category, \(error)")
+        }
     }
     
     //MARK: - Load Activities

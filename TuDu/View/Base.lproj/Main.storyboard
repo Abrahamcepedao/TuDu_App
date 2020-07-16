@@ -216,19 +216,36 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brf-CB-esj">
+                                <rect key="frame" x="20" y="140" width="374" height="35"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Vxa-l3-692"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Delete activity"/>
+                                <connections>
+                                    <action selector="deleteActivityPressed:" destination="2mo-6G-A5Q" eventType="touchUpInside" id="Xyf-1Z-ZvU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="brf-CB-esj" firstAttribute="top" secondItem="rW8-ZF-oix" secondAttribute="bottom" constant="30" id="KWg-7y-W0j"/>
                             <constraint firstItem="ZGp-Gd-bvO" firstAttribute="trailing" secondItem="rW8-ZF-oix" secondAttribute="trailing" constant="20" id="Rb9-0M-5ii"/>
                             <constraint firstItem="rW8-ZF-oix" firstAttribute="leading" secondItem="ZGp-Gd-bvO" secondAttribute="leading" constant="20" id="SMI-Di-cuk"/>
+                            <constraint firstItem="brf-CB-esj" firstAttribute="leading" secondItem="ZGp-Gd-bvO" secondAttribute="leading" constant="20" id="cDK-I4-6xf"/>
                             <constraint firstItem="L4R-lT-IqT" firstAttribute="leading" secondItem="ZGp-Gd-bvO" secondAttribute="leading" id="ixK-df-fPT"/>
                             <constraint firstItem="L4R-lT-IqT" firstAttribute="trailing" secondItem="ZGp-Gd-bvO" secondAttribute="trailing" id="jWg-oF-kMX"/>
+                            <constraint firstItem="ZGp-Gd-bvO" firstAttribute="trailing" secondItem="brf-CB-esj" secondAttribute="trailing" constant="20" id="q92-gE-6mr"/>
                             <constraint firstItem="rW8-ZF-oix" firstAttribute="top" secondItem="L4R-lT-IqT" secondAttribute="bottom" constant="30" id="soe-nJ-iN4"/>
                             <constraint firstItem="L4R-lT-IqT" firstAttribute="top" secondItem="ZGp-Gd-bvO" secondAttribute="top" id="ymb-ee-Bob"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZGp-Gd-bvO"/>
                     </view>
                     <connections>
+                        <outlet property="deleteBtn" destination="brf-CB-esj" id="Rac-4z-ROJ"/>
                         <outlet property="editActivityTF" destination="rW8-ZF-oix" id="RQT-XR-8xV"/>
                         <outlet property="navigationBar" destination="L4R-lT-IqT" id="9dG-12-ouU"/>
                     </connections>
@@ -301,7 +318,7 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcl-st-qN4">
                                 <rect key="frame" x="20" y="204" width="374" height="35"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="929-uX-sPR"/>
                                 </constraints>

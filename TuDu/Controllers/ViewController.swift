@@ -18,7 +18,8 @@ class ViewController: UIViewController {
     let realm = try! Realm()
     var categories: Results<Category>?
     var activities: Results<Activity>?
-    var tappedCategory: String = ""
+    var tappedCategory = ""
+    var tappedActivity = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +124,12 @@ extension ViewController: UITableViewDelegate{
 
 //MARK: - Category Cell Delegate Methods
 extension ViewController: CategoryCellDelegate{
+    func editActivityImageTapped(with title: String, and categoryTitle: String) {
+        tappedActivity = title
+        tappedCategory = categoryTitle
+        performSegue(withIdentifier: K.Segues.editActivitySegue, sender: self)
+    }
+    
     func addActivityImageTapped(with title: String) {
         tappedCategory = title
         performSegue(withIdentifier: K.Segues.addActivitySegue, sender: self)
@@ -134,6 +141,8 @@ extension ViewController: CategoryCellDelegate{
     }
     
 }
+
+
 
 
 //MARK: - Prepare for Segue functions
@@ -148,7 +157,10 @@ extension ViewController{
         } else if segue.identifier == K.Segues.addActivitySegue{
             let destinationVC = segue.destination as! AddActivityViewController
             destinationVC.selectedCategory = getCategory(with: tappedCategory)
+        } else if segue.identifier == K.Segues.editActivitySegue{
+            let destinationVC = segue.destination as! EditActivityViewController
+            destinationVC.selectedActivityS = tappedActivity
+            destinationVC.selectedCategory = getCategory(with: tappedCategory)
         }
-        
     }
 }

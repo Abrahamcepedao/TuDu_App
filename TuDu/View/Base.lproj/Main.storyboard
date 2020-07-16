@@ -76,6 +76,7 @@
                                     <button opaque="NO" contentMode="bottomLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="characterWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-yj-Hwt">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <color key="backgroundColor" red="0.015315928499999999" green="0.69439554209999999" blue="0.4195658565" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="0.90550085619999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Category" image="plus" catalog="system">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,6 +114,7 @@
                         <outlet property="tableView" destination="b7A-tC-xdL" id="4fh-YY-tvf"/>
                         <segue destination="Z5d-9R-ufS" kind="presentation" identifier="editCategorySegue" id="7l1-n3-KZc"/>
                         <segue destination="i3y-lF-5Sj" kind="presentation" identifier="addActivitySegue" id="L4w-xT-hKc"/>
+                        <segue destination="2mo-6G-A5Q" kind="presentation" identifier="editActivitySegue" id="8tO-F8-5Ey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -170,11 +172,70 @@
                     </view>
                     <connections>
                         <outlet property="activityTF" destination="7VL-Td-bkk" id="bBN-Oy-q6l"/>
+                        <outlet property="navigationBar" destination="0Q1-ea-UUH" id="VBe-hL-DT7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="195-KH-9Hb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="863.83928571428567"/>
+        </scene>
+        <!--Edit Activity View Controller-->
+        <scene sceneID="jlW-LL-b4b">
+            <objects>
+                <viewController id="2mo-6G-A5Q" customClass="EditActivityViewController" customModule="TuDu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RFj-yT-in1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4R-lT-IqT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gFN-3f-ZaM"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Edit activity" id="OJ4-0j-SFn">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.left" catalog="system" id="mcw-bx-vHC">
+                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="returnBtnPressed:" destination="2mo-6G-A5Q" id="HbI-BQ-ofB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="9b7-jg-Nle">
+                                            <connections>
+                                                <action selector="doneBtnPressed:" destination="2mo-6G-A5Q" id="RcF-34-Oth"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit Activity..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rW8-ZF-oix">
+                                <rect key="frame" x="20" y="70" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gAB-gr-G7W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZGp-Gd-bvO" firstAttribute="trailing" secondItem="rW8-ZF-oix" secondAttribute="trailing" constant="20" id="Rb9-0M-5ii"/>
+                            <constraint firstItem="rW8-ZF-oix" firstAttribute="leading" secondItem="ZGp-Gd-bvO" secondAttribute="leading" constant="20" id="SMI-Di-cuk"/>
+                            <constraint firstItem="L4R-lT-IqT" firstAttribute="leading" secondItem="ZGp-Gd-bvO" secondAttribute="leading" id="ixK-df-fPT"/>
+                            <constraint firstItem="L4R-lT-IqT" firstAttribute="trailing" secondItem="ZGp-Gd-bvO" secondAttribute="trailing" id="jWg-oF-kMX"/>
+                            <constraint firstItem="rW8-ZF-oix" firstAttribute="top" secondItem="L4R-lT-IqT" secondAttribute="bottom" constant="30" id="soe-nJ-iN4"/>
+                            <constraint firstItem="L4R-lT-IqT" firstAttribute="top" secondItem="ZGp-Gd-bvO" secondAttribute="top" id="ymb-ee-Bob"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZGp-Gd-bvO"/>
+                    </view>
+                    <connections>
+                        <outlet property="editActivityTF" destination="rW8-ZF-oix" id="RQT-XR-8xV"/>
+                        <outlet property="navigationBar" destination="L4R-lT-IqT" id="9dG-12-ouU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9WA-rl-ydF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1675" y="864"/>
         </scene>
         <!--Edit Category View Controller-->
         <scene sceneID="DOg-ba-RJK">

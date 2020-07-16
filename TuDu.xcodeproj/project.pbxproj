@@ -21,6 +21,7 @@
 		D76B98C224B678330052E6B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76B98C124B678330052E6B9 /* Constants.swift */; };
 		D7729D3A24AF8CE000B64287 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7729D3924AF8CE000B64287 /* Category.swift */; };
 		D7729D3C24AF8CEE00B64287 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7729D3B24AF8CEE00B64287 /* Activity.swift */; };
+		D7781D1424BFDBDE003A99B1 /* EditActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7781D1324BFDBDE003A99B1 /* EditActivityViewController.swift */; };
 		D783B71024BBDFE3004E75F0 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D783B70E24BBDFE3004E75F0 /* ActivityCell.swift */; };
 		D783B71124BBDFE3004E75F0 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D783B70F24BBDFE3004E75F0 /* ActivityCell.xib */; };
 		D7EA2F1D24B91E1200FCA47F /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA2F1C24B91E1200FCA47F /* EditCategoryViewController.swift */; };
@@ -44,6 +45,7 @@
 		D76B98C124B678330052E6B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D7729D3924AF8CE000B64287 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D7729D3B24AF8CEE00B64287 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		D7781D1324BFDBDE003A99B1 /* EditActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActivityViewController.swift; sourceTree = "<group>"; };
 		D783B70E24BBDFE3004E75F0 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		D783B70F24BBDFE3004E75F0 /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
 		D7EA2F1C24B91E1200FCA47F /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				D76B98BF24B652A00052E6B9 /* AddCategoryViewController.swift */,
 				D7EA2F1C24B91E1200FCA47F /* EditCategoryViewController.swift */,
 				D736C09F24BE940500945B37 /* AddActivityViewController.swift */,
+				D7781D1324BFDBDE003A99B1 /* EditActivityViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				D7729D3C24AF8CEE00B64287 /* Activity.swift in Sources */,
 				D7729D3A24AF8CE000B64287 /* Category.swift in Sources */,
+				D7781D1424BFDBDE003A99B1 /* EditActivityViewController.swift in Sources */,
 				D783B71024BBDFE3004E75F0 /* ActivityCell.swift in Sources */,
 				D71F125524AEBD2C00D6C190 /* ViewController.swift in Sources */,
 				D71F125124AEBD2C00D6C190 /* AppDelegate.swift in Sources */,

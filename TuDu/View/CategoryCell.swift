@@ -13,6 +13,7 @@ import ChameleonFramework
 protocol CategoryCellDelegate: AnyObject {
     func categoryImageTapped(with title: String)
     func addActivityImageTapped(with title: String)
+    func editActivityImageTapped(with title: String, and categoryTitle: String)
 }
 
 class CategoryCell: UITableViewCell {
@@ -27,9 +28,6 @@ class CategoryCell: UITableViewCell {
     var activities: Results<Activity>?
     var categories: Results<Category>?
     var currentCategory: Category?
-    var tappedActivity = ""
-    
-    
     private var categoryTitle = ""
     
     public func configure(with title: String, hexcolor: String){
@@ -65,6 +63,10 @@ class CategoryCell: UITableViewCell {
         delegate?.addActivityImageTapped(with: categoryTitle)
     }
     
+    @objc func editActivityImageTapped(with title: String, and categoryTitle: String){
+        delegate?.editActivityImageTapped(with: title, and: categoryTitle)
+    }
+    
     func setUpTV(){
         let editTap = UITapGestureRecognizer(target: self, action: #selector(CategoryCell.categoryImageTapped))
         categoryIV.addGestureRecognizer(editTap)
@@ -93,6 +95,7 @@ extension CategoryCell: UITableViewDataSource{
             cell.configure(with: "Add items")
         } else{
             cell.configure(with: activities?[indexPath.row].title ?? "default")
+            cell.delegate = self
         }
         cell.backgroundColor = categoryView.backgroundColor
         return cell
@@ -106,6 +109,13 @@ extension CategoryCell: UITableViewDelegate{
     }
 }
 
+//MARK: - Category Activity Delegate Methods
+extension CategoryCell: ActivityCellDelegate{
+    func editActivityImagePressed(with title: String) {
+        print(categoryLbl.text ?? "default")
+        editActivityImageTapped(with: title, and: categoryLbl.text ?? "default")
+    }
+}
 
 //MARK: - Data Methods
 extension CategoryCell{

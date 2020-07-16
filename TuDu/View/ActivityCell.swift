@@ -8,13 +8,16 @@
 
 import UIKit
 
-
+protocol ActivityCellDelegate: AnyObject {
+    func editActivityImagePressed(with title: String)
+}
 
 class ActivityCell: UITableViewCell {
 
     @IBOutlet weak var ActivityLbl: UILabel!
     @IBOutlet weak var activityVW: UIView!
     @IBOutlet weak var editActivityIV: UIImageView!
+    weak var delegate: ActivityCellDelegate?
     
     public func configure(with title: String){
         ActivityLbl.text = title
@@ -32,6 +35,7 @@ class ActivityCell: UITableViewCell {
     
     @objc func editActivityImagePressed(){
         print("--- \(ActivityLbl.text!)")
+        delegate?.editActivityImagePressed(with: ActivityLbl.text!)
     }
     
     func setUp(){

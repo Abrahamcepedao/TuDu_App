@@ -13,9 +13,11 @@ class AddActivityViewController: UIViewController {
     let realm = try! Realm()
     var selectedCategory: Category?
     @IBOutlet weak var activityTF: UITextField!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar.topItem?.title = "Add to \(selectedCategory?.title ?? "Category")"
     }
     
     override func viewWillDisappear(_ animated: Bool) {

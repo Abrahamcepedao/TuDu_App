@@ -32,6 +32,20 @@ class ViewController: UIViewController {
 //        tableView.rowHeight = 70
         addCategoryButton.backgroundColor = GradientColor(UIGradientStyle.leftToRight, frame: addCategoryButton.frame, colors: [HexColor("6FC6B3")!, HexColor("4377BB")!])
     }
+    override func viewDidDisappear(_ animated: Bool) {
+        if categories?.count != 0{
+            do{
+                try realm.write{
+                    for category in categories!{
+                        category.selected = false
+                    }
+                }
+            } catch{
+                print("Error updating categories, \(error)")
+            }
+        }
+    }
+    
     
     //MARK: - Data Manipulation Methods
     //MARK: - Load Categories

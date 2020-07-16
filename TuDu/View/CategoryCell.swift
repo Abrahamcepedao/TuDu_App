@@ -113,6 +113,7 @@ extension CategoryCell: UITableViewDataSource{
             cell.configure(with: activities?[indexPath.row].title ?? "default")
             cell.delegate = self
         }
+        cell.selectionStyle = .none
         cell.backgroundColor = categoryView.backgroundColor
         return cell
     }
@@ -122,6 +123,9 @@ extension CategoryCell: UITableViewDataSource{
 extension CategoryCell: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        if activities?.count == 0{
+            addActivityImageTapped()
+        }
     }
 }
 

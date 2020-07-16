@@ -78,6 +78,7 @@ class EditCategoryViewController: UIViewController {
     func deleteCategory(category: Category?){
         do{
             try realm.write{
+                self.realm.delete(category!.activities)
                 self.realm.delete(category!)
             }
         } catch {

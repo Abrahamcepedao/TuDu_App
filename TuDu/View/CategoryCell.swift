@@ -30,19 +30,21 @@ class CategoryCell: UITableViewCell {
     var currentCategory: Category?
     private var categoryTitle = ""
     
-    public func configure(with title: String, hexcolor: String){
+    public func configure(with title: String, hexcolor: String, type: Bool){
         guard let color = UIColor(hexString: hexcolor) else{fatalError("No category")}
         categoryLbl.text =  title
         self.categoryTitle = title
         categoryView.backgroundColor = color
         categoryLbl.textColor = ContrastColorOf(color, returnFlat: true)
         categoryView.layer.cornerRadius = 15
-        activitiesTV.delegate = self
-        activitiesTV.separatorStyle = .none
-        currentCategory = getCategory(with: categoryLbl.text!)
-        loadActivities()
-        activitiesTV.reloadData()
-        activitiesTV.backgroundColor = color
+        if type {
+            activitiesTV.delegate = self
+            activitiesTV.separatorStyle = .none
+            currentCategory = getCategory(with: categoryLbl.text!)
+            loadActivities()
+            activitiesTV.reloadData()
+            activitiesTV.backgroundColor = color
+        }
     }
     
     override func awakeFromNib() {
@@ -83,11 +85,16 @@ class CategoryCell: UITableViewCell {
 extension CategoryCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //countActivitiesInCategory()
-        if  activities?.count == 0{
-            return 1
+        if categories?.count != 0{
+            if  activities?.count == 0{
+                return 1
+            } else{
+                return activities?.count ?? 1
+            }
         } else{
-            return activities?.count ?? 1
+            return 0
         }
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.activityCellTV, for: indexPath) as! ActivityCell

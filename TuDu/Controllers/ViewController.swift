@@ -104,10 +104,10 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.categoryCellTV, for: indexPath) as! CategoryCell
         if categories?.count == 0 {
-            cell.configure(with: "Create a new category", hexcolor: UIColor.systemBlue.hexValue())
+            cell.configure(with: "Create a new category", hexcolor: UIColor.systemBlue.hexValue(), type: false)
         } else{
             if let category = categories?[indexPath.row] {
-                cell.configure(with: category.title, hexcolor: category.color)
+                cell.configure(with: category.title, hexcolor: category.color, type: true)
             }
         }
         cell.delegate = self

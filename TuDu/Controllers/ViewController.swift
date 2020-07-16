@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         }
         tableView.reloadData()
     }
-    //MARK: - Update Category
+    //MARK: - Update Category Title
     func updateCategoryTitle(category: Category, newTitle: String){
         do{
             try realm.write{
@@ -63,6 +63,7 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
     
+    //MARK: - Update Category Selected
     func updateSelectedCategory(with category: Category?){
         do{
             try realm.write{
@@ -71,6 +72,11 @@ class ViewController: UIViewController {
         } catch{
             print("Error updating category \(error)")
         }
+    }
+    
+    //MARK: - Load Activities
+    func loadCategories(with category: Category?){
+        activities = category?.activities.sorted(byKeyPath: "title", ascending: true)
     }
     
     //MARK: - Delete Category
@@ -134,13 +140,17 @@ extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         updateSelectedCategory(with: categories?[indexPath.row])
-        tableView.reloadRows(at: [indexPath], with: .fade)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if categories?.count ?? 0 > 0{
             if categories?[indexPath.row].selected ?? false{
-                return 200
+                loadCategories(with: categories?[indexPath.row])
+                if activities?.count ?? 0 > 1{
+                    return (140 + (CGFloat(activities?.count ?? 1)-1)*50)
+                }
+                return 140
             }
         }
         return 70

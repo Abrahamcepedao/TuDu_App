@@ -107,9 +107,9 @@ extension CategoryCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.activityCellTV, for: indexPath) as! ActivityCell
         if activities?.count == 0{
-            cell.configure(with: "Add items")
+            cell.configure(with: "Add items", color: "000000")
         } else{
-            cell.configure(with: activities?[indexPath.row].title ?? "default")
+            cell.configure(with: activities?[indexPath.row].title ?? "default", color: categoryView.backgroundColor!.hexValue())
             cell.delegate = self
         }
         cell.selectionStyle = .none

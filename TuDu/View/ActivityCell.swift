@@ -17,11 +17,14 @@ class ActivityCell: UITableViewCell {
     @IBOutlet weak var ActivityLbl: UILabel!
     @IBOutlet weak var activityVW: UIView!
     @IBOutlet weak var editActivityIV: UIImageView!
+    @IBOutlet weak var doneButtonIV: UIImageView!
+    
     weak var delegate: ActivityCellDelegate?
     
-    public func configure(with title: String){
+    public func configure(with title: String, color: String){
         ActivityLbl.text = title
         activityVW.layer.cornerRadius = 20
+        doneButtonIV.tintColor = UIColor(hexString: color)
     }
     
     override func awakeFromNib() {

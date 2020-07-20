@@ -49,7 +49,6 @@ class CategoryCell: UITableViewCell {
             activitiesTV.reloadData()
             activitiesTV.backgroundColor = color
         }
-        print(title)
         if title == "Create a new category"{
             addActivityIV.isHidden = true
             categoryIV.isHidden = true

@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: K.Nibs.categoryCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.categoryCellTV)
         tableView.reloadData()
-        tableView.estimatedRowHeight = 70
+//        tableView.estimatedRowHeight = 70
         tableView.rowHeight = UITableView.automaticDimension
 //        tableView.rowHeight = 70
         addCategoryButton.backgroundColor = GradientColor(UIGradientStyle.leftToRight, frame: addCategoryButton.frame, colors: [HexColor("6FC6B3")!, HexColor("4377BB")!])
@@ -155,7 +155,7 @@ extension ViewController: UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
         if categories?.count ?? 0 > 0{
             updateSelectedCategory(with: categories?[indexPath.row])
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.reloadRows(at: [indexPath], with: .left)
         } else{
             performSegue(withIdentifier: K.Segues.addCategorySegue, sender: self)
         }

@@ -17,14 +17,14 @@ class ActivityCell: UITableViewCell {
     @IBOutlet weak var ActivityLbl: UILabel!
     @IBOutlet weak var activityVW: UIView!
     @IBOutlet weak var editActivityIV: UIImageView!
-    @IBOutlet weak var doneButtonIV: UIImageView!
+    @IBOutlet weak var doneActivityIV: UIImageView!
     
     weak var delegate: ActivityCellDelegate?
     
     public func configure(with title: String, color: String){
         ActivityLbl.text = title
         activityVW.layer.cornerRadius = 20
-        doneButtonIV.tintColor = UIColor(hexString: color)
+        doneActivityIV.tintColor = UIColor(hexString: color)
     }
     
     override func awakeFromNib() {
@@ -37,9 +37,9 @@ class ActivityCell: UITableViewCell {
     }
     
     @objc func editActivityImagePressed(){
-        print("--- \(ActivityLbl.text!)")
         delegate?.editActivityImagePressed(with: ActivityLbl.text!)
     }
+    
     
     func setUp(){
         let editTap = UITapGestureRecognizer(target: self, action: #selector(ActivityCell.editActivityImagePressed))

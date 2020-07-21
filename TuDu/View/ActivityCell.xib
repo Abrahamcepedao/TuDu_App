@@ -66,7 +66,7 @@
             <connections>
                 <outlet property="ActivityLbl" destination="UbL-rA-xym" id="Cn7-DK-Sfp"/>
                 <outlet property="activityVW" destination="Hxr-xj-sGg" id="tMB-eu-UHG"/>
-                <outlet property="doneButtonIV" destination="CT0-LY-Dcr" id="c93-2h-ET8"/>
+                <outlet property="doneActivityIV" destination="CT0-LY-Dcr" id="c93-2h-ET8"/>
                 <outlet property="editActivityIV" destination="wmc-Ku-qKc" id="ehP-rH-p5d"/>
             </connections>
             <point key="canvasLocation" x="138.40579710144928" y="143.63839285714286"/>

@@ -13,6 +13,6 @@ class Activity: Object{
     @objc dynamic var title: String = ""
     @objc dynamic var text: String = ""
     @objc dynamic var date: Date?
-    @objc dynamic var selected: Bool = false
+    @objc dynamic var status: Bool = false
     var parentCategory = LinkingObjects(fromType: Category.self, property: "activities")
 }

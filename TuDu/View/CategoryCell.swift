@@ -107,9 +107,9 @@ extension CategoryCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.activityCellTV, for: indexPath) as! ActivityCell
         if activities?.count == 0{
-            cell.configure(with: "Add items", color: "000000")
+            cell.configure(with: "Add items", color: "000000", status: false)
         } else{
-            cell.configure(with: activities?[indexPath.row].title ?? "default", color: categoryView.backgroundColor!.hexValue())
+            cell.configure(with: activities?[indexPath.row].title ?? "new activity", color: categoryView.backgroundColor!.hexValue(), status: activities?[indexPath.row].status ?? false)
             cell.delegate = self
         }
         cell.selectionStyle = .none
@@ -122,16 +122,14 @@ extension CategoryCell: UITableViewDataSource{
 extension CategoryCell: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        let cell = tableView.cellForRow(at: indexPath) as! ActivityCell
-        if cell.doneActivityIV.image == UIImage(systemName: "circle"){
-            cell.doneActivityIV.image = UIImage(systemName: "circle.fill")
+        if activities?.count != 0{
+            let cell = tableView.cellForRow(at: indexPath) as! ActivityCell
+            updateActivityStatus(with: cell.ActivityLbl.text!)
+            tableView.reloadData()
         } else{
-            cell.doneActivityIV.image = UIImage(systemName: "circle")
-        }
-        
-        if activities?.count == 0{
             addActivityImageTapped()
         }
+        
     }
 }
 
@@ -149,11 +147,6 @@ extension CategoryCell{
         categories = realm.objects(Category.self)
     }
     
-    //MARK: - Load Activities
-    func loadActivities(){
-        activities = currentCategory?.activities.sorted(byKeyPath: "title", ascending: true)
-    }
-    
     //MARK: - getCategory
     func getCategory(with title: String) -> Category{
         for category in categories!{
@@ -165,6 +158,36 @@ extension CategoryCell{
         newCategory.title = "New category"
         newCategory.color = UIColor.randomFlat().hexValue()
         return newCategory
+    }
+    
+    //MARK: - Load Activities
+    func loadActivities(){
+        activities = currentCategory?.activities.sorted(byKeyPath: "title", ascending: true)
+    }
+    
+    //MARK: - Get Activity
+    func getActivity(with title: String) -> Activity?{
+        for activity in activities!{
+            if activity.title == title{
+                return activity
+            }
+        }
+        let newActivity = Activity()
+        newActivity.title = "--"
+        newActivity.date = Date()
+        return newActivity
+    }
+    
+    //MARK: - Update Activity Status
+    func updateActivityStatus(with title: String){
+        let activity = getActivity(with: title)
+        do{
+            try realm.write{
+                activity!.status =  !activity!.status
+            }
+        } catch {
+            print("Error updating activity satus, \(error)")
+        }
     }
 }
 

@@ -21,10 +21,18 @@ class ActivityCell: UITableViewCell {
     
     weak var delegate: ActivityCellDelegate?
     
-    public func configure(with title: String, color: String){
+    public func configure(with title: String, color: String, status: Bool){
         ActivityLbl.text = title
         activityVW.layer.cornerRadius = 20
-        doneActivityIV.tintColor = UIColor(hexString: color)
+        if title == "Add items"{
+            editActivityIV.isHidden = true
+            doneActivityIV.isHidden = true
+        } else{
+            editActivityIV.isHidden = false
+            doneActivityIV.isHidden = false
+            doneActivityIV.tintColor = UIColor(hexString: color)
+            doneActivityIV.image =  status ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
+        }
     }
     
     override func awakeFromNib() {

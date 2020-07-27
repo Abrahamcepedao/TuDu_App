@@ -20,7 +20,7 @@
                         <rect key="frame" x="5" y="5" width="311" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Activity" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbL-rA-xym">
-                                <rect key="frame" x="33" y="10" width="244" height="21"/>
+                                <rect key="frame" x="35" y="10" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -39,17 +39,26 @@
                                     <constraint firstAttribute="height" constant="30" id="d7x-Yp-qPa"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="trash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="clq-VY-mgl">
+                                <rect key="frame" x="257.5" y="4" width="19.5" height="30.5"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8Uy-VE-PnJ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="wmc-Ku-qKc" secondAttribute="trailing" constant="5" id="0Te-ob-i0o"/>
                             <constraint firstItem="CT0-LY-Dcr" firstAttribute="top" secondItem="Hxr-xj-sGg" secondAttribute="top" constant="5" id="6Xw-dF-gp4"/>
                             <constraint firstItem="wmc-Ku-qKc" firstAttribute="top" secondItem="Hxr-xj-sGg" secondAttribute="top" constant="5" id="CCq-1g-7Is"/>
-                            <constraint firstItem="wmc-Ku-qKc" firstAttribute="leading" secondItem="UbL-rA-xym" secondAttribute="trailing" constant="10" id="EmU-dP-MjT"/>
                             <constraint firstItem="UbL-rA-xym" firstAttribute="leading" secondItem="CT0-LY-Dcr" secondAttribute="trailing" constant="10" id="KOT-1Z-Ttl"/>
+                            <constraint firstItem="clq-VY-mgl" firstAttribute="top" secondItem="Hxr-xj-sGg" secondAttribute="top" constant="5" id="PiW-BF-ibn"/>
                             <constraint firstAttribute="height" constant="40" id="RoM-U1-gog"/>
                             <constraint firstItem="UbL-rA-xym" firstAttribute="top" secondItem="Hxr-xj-sGg" secondAttribute="top" constant="10" id="Rxs-g1-Xu1"/>
+                            <constraint firstItem="wmc-Ku-qKc" firstAttribute="leading" secondItem="clq-VY-mgl" secondAttribute="trailing" constant="10" id="jmF-q5-Zed"/>
                             <constraint firstItem="CT0-LY-Dcr" firstAttribute="leading" secondItem="Hxr-xj-sGg" secondAttribute="leading" constant="5" id="swc-17-IgV"/>
+                            <constraint firstItem="clq-VY-mgl" firstAttribute="leading" secondItem="UbL-rA-xym" secondAttribute="trailing" constant="10" id="tkY-MN-ucy"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -66,6 +75,7 @@
             <connections>
                 <outlet property="ActivityLbl" destination="UbL-rA-xym" id="Cn7-DK-Sfp"/>
                 <outlet property="activityVW" destination="Hxr-xj-sGg" id="tMB-eu-UHG"/>
+                <outlet property="deleteActivityIV" destination="clq-VY-mgl" id="UhZ-su-1IM"/>
                 <outlet property="doneActivityIV" destination="CT0-LY-Dcr" id="c93-2h-ET8"/>
                 <outlet property="editActivityIV" destination="wmc-Ku-qKc" id="ehP-rH-p5d"/>
             </connections>
@@ -75,5 +85,6 @@
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
     </resources>
 </document>

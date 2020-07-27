@@ -14,6 +14,7 @@ protocol CategoryCellDelegate: AnyObject {
     func categoryImageTapped(with title: String)
     func addActivityImageTapped(with title: String)
     func editActivityImageTapped(with title: String, and categoryTitle: String)
+    func deleteActivityImageTapped(with title: String, and categoryTitle: String)
 }
 
 class CategoryCell: UITableViewCell {
@@ -27,6 +28,7 @@ class CategoryCell: UITableViewCell {
     @IBOutlet weak var activitiesTV: UITableView!
     var activities: Results<Activity>?
     var categories: Results<Category>?
+    var activity: Activity?
     var currentCategory: Category?
     private var categoryTitle = ""
     
@@ -75,6 +77,10 @@ class CategoryCell: UITableViewCell {
     
     @objc func editActivityImageTapped(with title: String, and categoryTitle: String){
         delegate?.editActivityImageTapped(with: title, and: categoryTitle)
+    }
+    
+    @objc func deleteActivityImageTapped(with title: String, and categoryTitle: String){
+        delegate?.deleteActivityImageTapped(with: title, and: categoryTitle)
     }
     
     func setUpTV(){
@@ -135,8 +141,13 @@ extension CategoryCell: UITableViewDelegate{
 
 //MARK: - Category Activity Delegate Methods
 extension CategoryCell: ActivityCellDelegate{
+    func deleteActivityImagePressed(with title: String) {
+        deleteActivityImageTapped(with: title, and:categoryLbl.text ?? "default")
+    }
+    
     func editActivityImagePressed(with title: String) {
         editActivityImageTapped(with: title, and: categoryLbl.text ?? "default")
+        activitiesTV.reloadData()
     }
 }
 

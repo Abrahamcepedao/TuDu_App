@@ -27,9 +27,7 @@ class ViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: K.Nibs.categoryCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.categoryCellTV)
         tableView.reloadData()
-//        tableView.estimatedRowHeight = 70
         tableView.rowHeight = UITableView.automaticDimension
-//        tableView.rowHeight = 70
         addCategoryButton.backgroundColor = GradientColor(UIGradientStyle.leftToRight, frame: addCategoryButton.frame, colors: [HexColor("6FC6B3")!, HexColor("4377BB")!])
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -119,6 +117,32 @@ class ViewController: UIViewController {
         return newCategory
     }
     
+    //MARK: - Get Activity
+    func getActivity(with title: String) -> Activity?{
+        for activity in activities!{
+            if activity.title == title{
+                return activity
+            }
+        }
+        let newActivity = Activity()
+        newActivity.title = "--"
+        newActivity.date = Date()
+        return newActivity
+    }
+    
+    //MARK: - Delete activity
+    func deleteActivity(with title: String){
+        let activity =  getActivity(with: title)
+        do{
+            try realm.write{
+                self.realm.delete(activity!)
+            }
+        } catch {
+            print("Error deleting category, \(error)")
+        }
+        tableView.reloadData()
+    }
+    
     @IBAction func BtnAddCategory(_ sender: UIButton) {
         performSegue(withIdentifier: K.Segues.addCategorySegue, sender: self)
     }
@@ -178,21 +202,27 @@ extension ViewController: UITableViewDelegate{
 
 //MARK: - Category Cell Delegate Methods
 extension ViewController: CategoryCellDelegate{
-    func editActivityImageTapped(with title: String, and categoryTitle: String) {
-        tappedActivity = title
-        tappedCategory = categoryTitle
-        performSegue(withIdentifier: K.Segues.editActivitySegue, sender: self)
-    }
-    
-    func addActivityImageTapped(with title: String) {
-        tappedCategory = title
-        performSegue(withIdentifier: K.Segues.addActivitySegue, sender: self)
-    }
     
     func categoryImageTapped(with title: String) {
         tappedCategory = title
         performSegue(withIdentifier: K.Segues.editCategorySegue, sender: self)
     }
+    
+    func editActivityImageTapped(with title: String, and categoryTitle: String) {
+        tappedActivity = title
+        tappedCategory = categoryTitle
+        performSegue(withIdentifier: K.Segues.editActivitySegue, sender: self)
+    }
+    func addActivityImageTapped(with title: String) {
+        tappedCategory = title
+        performSegue(withIdentifier: K.Segues.addActivitySegue, sender: self)
+    }
+    func deleteActivityImageTapped(with title: String, and categoryTitle: String) {
+        loadCategories(with: getCategory(with: categoryTitle))
+        deleteActivity(with: title)
+    }
+    
+    
     
 }
 

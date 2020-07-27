@@ -34,6 +34,8 @@ class ActivityCell: UITableViewCell {
             editActivityIV.isHidden = false
             doneActivityIV.isHidden = false
             deleteActivityIV.isHidden = status ? false : true
+            deleteActivityIV.tintColor = UIColor(hexString: color)
+            editActivityIV.tintColor = UIColor(hexString: color)
             doneActivityIV.tintColor = UIColor(hexString: color)
             doneActivityIV.image =  status ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
         }

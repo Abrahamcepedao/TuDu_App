@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: K.Nibs.categoryCellNib, bundle: nil), forCellReuseIdentifier: K.CellIdentifiers.categoryCellTV)
         tableView.reloadData()
         tableView.rowHeight = UITableView.automaticDimension
-        addCategoryButton.backgroundColor = GradientColor(UIGradientStyle.leftToRight, frame: addCategoryButton.frame, colors: [HexColor("6FC6B3")!, HexColor("4377BB")!])
+        addCategoryButton.backgroundColor = GradientColor(UIGradientStyle.leftToRight, frame: addCategoryButton.frame.self, colors: [HexColor("6FC6B3")!, HexColor("4377BB")!])
     }
     override func viewDidDisappear(_ animated: Bool) {
         if categories?.count != 0{

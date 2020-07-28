@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,18 +13,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TuDu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tudu_logo" translatesAutoresizingMaskIntoConstraints="NO" id="q5g-0s-5oL">
-                                <rect key="frame" x="11" y="67" width="40" height="40"/>
+                                <rect key="frame" x="55" y="23" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="DxZ-dP-hJB"/>
                                     <constraint firstAttribute="height" constant="40" id="c71-1U-bPA"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gear" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="guo-BT-GMa">
-                                <rect key="frame" x="354" y="64" width="40" height="40.5"/>
+                                <rect key="frame" x="792" y="20" width="40" height="40.5"/>
                                 <color key="tintColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZJB-Kr-nda"/>
@@ -32,14 +32,14 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b7A-tC-xdL">
-                                <rect key="frame" x="0.0" y="114" width="414" height="722"/>
+                                <rect key="frame" x="44" y="70" width="808" height="284"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCellTV" rowHeight="170" id="3DG-t5-nCg" customClass="CategoryCell" customModule="TuDu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="170"/>
+                                        <rect key="frame" x="0.0" y="28" width="808" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3DG-t5-nCg" id="0JS-9X-OT0">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="808" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <tableView clipsSubviews="YES" tag="90" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V1n-ly-HvF">
@@ -71,11 +71,14 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-uh-wpE">
-                                <rect key="frame" x="0.0" y="836" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="354" width="896" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="bottomLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="characterWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-yj-Hwt">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="896" height="60"/>
                                         <color key="backgroundColor" red="0.015315928499999999" green="0.69439554209999999" blue="0.4195658565" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Rbt-8b-S10"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="0.90550085619999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Category" image="plus" catalog="system">
@@ -90,6 +93,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="DZc-3q-lLB"/>
+                                    <constraint firstAttribute="bottom" secondItem="lrx-yj-Hwt" secondAttribute="bottom" id="J4s-5a-kLq"/>
+                                    <constraint firstItem="lrx-yj-Hwt" firstAttribute="leading" secondItem="hcq-uh-wpE" secondAttribute="leading" id="Oh9-b3-d0M"/>
+                                    <constraint firstAttribute="trailing" secondItem="lrx-yj-Hwt" secondAttribute="trailing" id="YK0-rL-qnf"/>
+                                    <constraint firstItem="lrx-yj-Hwt" firstAttribute="top" secondItem="hcq-uh-wpE" secondAttribute="top" id="rYh-CO-NGE"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -126,11 +133,11 @@
             <objects>
                 <viewController id="i3y-lF-5Sj" customClass="AddActivityViewController" customModule="TuDu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tpf-P2-3mh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q1-ea-UUH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7cG-r9-bSG"/>
                                 </constraints>
@@ -151,7 +158,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type new item.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7VL-Td-bkk">
-                                <rect key="frame" x="20" y="74" width="374" height="40"/>
+                                <rect key="frame" x="64" y="74" width="768" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nm1-gs-qxV"/>
                                 </constraints>
@@ -184,11 +191,11 @@
             <objects>
                 <viewController id="2mo-6G-A5Q" customClass="EditActivityViewController" customModule="TuDu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RFj-yT-in1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4R-lT-IqT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gFN-3f-ZaM"/>
                                 </constraints>
@@ -209,7 +216,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit Activity..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rW8-ZF-oix">
-                                <rect key="frame" x="20" y="70" width="374" height="40"/>
+                                <rect key="frame" x="64" y="70" width="768" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gAB-gr-G7W"/>
                                 </constraints>
@@ -217,7 +224,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brf-CB-esj">
-                                <rect key="frame" x="20" y="140" width="374" height="35"/>
+                                <rect key="frame" x="64" y="140" width="768" height="35"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Vxa-l3-692"/>
@@ -259,11 +266,11 @@
             <objects>
                 <viewController id="Z5d-9R-ufS" customClass="EditCategoryViewController" customModule="TuDu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UTn-0a-kUW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NB5-3k-2nA">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="waF-bU-Iwa"/>
                                 </constraints>
@@ -285,7 +292,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit category..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qDz-Qe-S2k">
-                                <rect key="frame" x="20" y="74" width="374" height="40"/>
+                                <rect key="frame" x="64" y="74" width="768" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tea-gR-JPB"/>
                                 </constraints>
@@ -293,7 +300,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oZK-jD-UBo">
-                                <rect key="frame" x="20" y="134" width="374" height="40"/>
+                                <rect key="frame" x="64" y="134" width="768" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9hJ-4V-Sy2"/>
@@ -317,7 +324,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcl-st-qN4">
-                                <rect key="frame" x="20" y="204" width="374" height="35"/>
+                                <rect key="frame" x="64" y="204" width="768" height="35"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="929-uX-sPR"/>
@@ -362,11 +369,11 @@
             <objects>
                 <viewController id="Jsl-k5-xpM" customClass="AddCategoryViewController" customModule="TuDu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fm4-lo-tXx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-uc-Aoe">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2Ic-Hr-Yf7"/>
                                 </constraints>
@@ -388,7 +395,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type new category..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78L-g8-Lpu">
-                                <rect key="frame" x="20" y="74" width="374" height="40"/>
+                                <rect key="frame" x="64" y="74" width="768" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pqm-nD-csJ"/>
                                 </constraints>
@@ -396,7 +403,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TAb-LP-EP0">
-                                <rect key="frame" x="20" y="134" width="374" height="40"/>
+                                <rect key="frame" x="64" y="134" width="768" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9c1-bV-HNU"/>

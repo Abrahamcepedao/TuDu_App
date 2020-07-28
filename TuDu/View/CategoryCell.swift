@@ -34,13 +34,15 @@ class CategoryCell: UITableViewCell {
     
     public func configure(with title: String, hexcolor: String, type: Bool){
         guard let color = UIColor(hexString: hexcolor) else{fatalError("No category")}
+        var constrastColor = ContrastColorOf(color, returnFlat: true)
+        constrastColor = constrastColor.hexValue() != "#262626" ? ContrastColorOf(color, returnFlat: true) : color.darken(byPercentage: 0.5)!
         categoryLbl.text =  title
         self.categoryTitle = title
         categoryView.backgroundColor = color
-        categoryLbl.textColor = ContrastColorOf(color, returnFlat: true)
+        categoryLbl.textColor = constrastColor
         categoryView.layer.cornerRadius = 15
-        addActivityIV.tintColor = ContrastColorOf(color, returnFlat: true)
-        categoryIV.tintColor = ContrastColorOf(color, returnFlat: true)
+        addActivityIV.tintColor = constrastColor
+        categoryIV.tintColor = constrastColor
         if type {
             addActivityIV.isHidden = false
             categoryIV.isHidden = false

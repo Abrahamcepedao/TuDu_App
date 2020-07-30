@@ -18,7 +18,7 @@ class EditCategoryViewController: UIViewController {
     var category: Category? = Category()
     var categoryTl: String = ""
     var categoryCr: String = ""
-    var colors: [String] = ["4377BB", "A2D39E", "E82851", "F15C65", "1C315F", "6FC6B3", "FBB040", "F16C36", "EC337F", "54B96F", "#2d3436", "#636e72", "#b2bec3", "#dfe6e9", "#e84393", "#fd79a8", "#6c5ce7", "#a29bfe", "#d63031", "#ff7675", "#0984e3", "#74b9ff", "#e17055", "#fab1a0", "#00cec9", "#81ecec", "#fdcb6e", "#ffeaa7", "#00b894", "#55efc4"]
+    var colors: [String] = ["4377BB", "A2D39E", "E82851", "F15C65", "1C315F", "6FC6B3", "FBB040", "F16C36", "EC337F", "54B96F", "#2d3436", "#636e72", "#b2bec3", "#dfe6e9", "#e84393", "#fd79a8", "#6c5ce7", "#a29bfe", "#d63031", "#ff7675", "#0984e3", "#74b9ff", "#e17055", "#fab1a0", "#00cec9", "#81ecec", "#fdcb6e", "#ffeaa7", "#00b894", "#55efc4", "#1abc9c", "#16a085", "#2ecc71", "#27ae60", "#2980b9", "#3498db", "#c0392b", "#e74c3c", "#d35400", "#e67e22", "#f39c12", "#f1c40f", "#2c3e50", "#34495e", "#7f8c8d", "#95a5a6",  "#bdc3c7", "#ecf0f1"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

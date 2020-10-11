@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -17,18 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tudu_logo" translatesAutoresizingMaskIntoConstraints="NO" id="q5g-0s-5oL">
-                                <rect key="frame" x="11" y="67" width="40" height="40"/>
+                                <rect key="frame" x="187" y="67" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="DxZ-dP-hJB"/>
                                     <constraint firstAttribute="height" constant="40" id="c71-1U-bPA"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gear" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="guo-BT-GMa">
-                                <rect key="frame" x="354" y="64" width="40" height="40.5"/>
-                                <color key="tintColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="ZJB-Kr-nda"/>
-                                    <constraint firstAttribute="width" constant="40" id="zup-bv-k7p"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b7A-tC-xdL">
@@ -103,14 +95,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="hcq-uh-wpE" secondAttribute="bottom" id="Bc5-em-M5W"/>
-                            <constraint firstItem="b7A-tC-xdL" firstAttribute="top" secondItem="guo-BT-GMa" secondAttribute="bottom" constant="10" id="DM5-MO-JBu"/>
+                            <constraint firstItem="b7A-tC-xdL" firstAttribute="top" secondItem="q5g-0s-5oL" secondAttribute="bottom" constant="7" id="DkA-yZ-zld"/>
                             <constraint firstItem="hcq-uh-wpE" firstAttribute="top" secondItem="b7A-tC-xdL" secondAttribute="bottom" id="DlP-IN-D6T"/>
                             <constraint firstItem="b7A-tC-xdL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HNc-7T-r6g"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="guo-BT-GMa" secondAttribute="trailing" constant="20" id="VWv-kM-GG1"/>
+                            <constraint firstItem="q5g-0s-5oL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jdk-Cd-R9v"/>
                             <constraint firstAttribute="trailing" secondItem="hcq-uh-wpE" secondAttribute="trailing" id="Zut-mG-uB6"/>
                             <constraint firstItem="hcq-uh-wpE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aJM-CF-oU0"/>
-                            <constraint firstItem="q5g-0s-5oL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="11" id="cNl-zJ-1PT"/>
-                            <constraint firstItem="guo-BT-GMa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="eCa-fz-NV9"/>
                             <constraint firstItem="q5g-0s-5oL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="23" id="mqx-Lr-hBn"/>
                             <constraint firstItem="b7A-tC-xdL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nfQ-5e-09t"/>
                         </constraints>
@@ -454,7 +444,6 @@
     </scenes>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="tudu_logo" width="358" height="358.5"/>
     </resources>
